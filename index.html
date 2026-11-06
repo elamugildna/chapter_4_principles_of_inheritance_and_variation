@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles of Inheritance and Variation — KCET &amp; NEET PYQ Portal (130 Questions)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+      }
+      .q-card {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <button id="brandHomeBtn" type="button" class="flex items-center gap-2.5 text-left group">
+          <div class="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center font-extrabold text-sm shadow-sm group-hover:bg-purple-700 transition">GEN</div>
+          <div>
+            <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">Principles of Inheritance &amp; Variation</h1>
+            <p class="text-xs text-slate-500">KCET &amp; NEET PYQ Question Banks &bull; 130 Aligned Questions (2000–2026)</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs sm:text-sm font-semibold text-slate-600">
+        <button id="navHomeBtn" type="button" class="px-3 py-1.5 rounded-lg bg-white text-purple-700 shadow-xs transition">Home Portal</button>
+        <button id="navKcetBtn" type="button" class="px-3 py-1.5 rounded-lg hover:text-slate-900 transition">KCET Bank (59)</button>
+        <button id="navNeetBtn" type="button" class="px-3 py-1.5 rounded-lg hover:text-slate-900 transition">NEET PYQ Bank (71)</button>
+        <button id="navNotesBtn" type="button" class="px-3 py-1.5 rounded-lg hover:text-slate-900 transition">Revision Notes</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-6">
+
+    <!-- VIEW 1: HOME PORTAL DASHBOARD -->
+    <section id="homeView" class="space-y-6">
+      <!-- Hero Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 text-white p-6 sm:p-8 shadow-md">
+        <span class="inline-block px-3 py-1 bg-white/10 text-purple-200 text-xs font-semibold rounded-full mb-3 tracking-wide">
+          Complete Biology Exam Preparation Portal &bull; NCERT Class 12 Chapter 4 (Updated with 2025 &amp; 2026 Papers)
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+          Principles of Inheritance and Variation: KCET &amp; NEET PYQ Portal
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed mb-6">
+          Practice 130 authentic previous year questions from KCET (2014–2026) and AIPMT/NEET (2000–2026, including Re-NEET and NTA 304 E). Covers Mendelian ratios, test crosses, incomplete dominance, co-dominance, linkage and recombination, sex determination, pedigree analysis, and genetic disorders with instant scoring and revision notes.
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="heroStartKcetBtn" type="button" class="px-5 py-2.5 rounded-xl bg-white text-purple-950 font-bold text-sm shadow hover:bg-slate-100 transition">
+            Open KCET Bank (59 Qs)
+          </button>
+          <button id="heroStartNeetBtn" type="button" class="px-5 py-2.5 rounded-xl bg-purple-600 text-white font-bold text-sm shadow hover:bg-purple-700 transition">
+            Open NEET PYQ Bank (71 Qs)
+          </button>
+          <button id="heroOpenNotesBtn" type="button" class="px-5 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-sm hover:bg-slate-700 transition">
+            View Revision Notes
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Statistics & Progress Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Question Bank</p>
+          <p class="text-2xl font-extrabold text-slate-900 mt-1">130 Questions</p>
+          <p class="text-xs text-slate-500 mt-1">59 KCET + 71 NEET PYQ items (incl. 2025 &amp; 2026)</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
+          <p class="text-xs font-bold text-purple-600 uppercase tracking-wider">KCET Practice Progress</p>
+          <p id="statKcetProgress" class="text-2xl font-extrabold text-purple-700 mt-1">0 / 59</p>
+          <p id="statKcetScore" class="text-xs text-slate-500 mt-1">Score: 0 correct (0%)</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
+          <p class="text-xs font-bold text-emerald-600 uppercase tracking-wider">NEET PYQ Progress</p>
+          <p id="statNeetProgress" class="text-2xl font-extrabold text-emerald-700 mt-1">0 / 71</p>
+          <p id="statNeetScore" class="text-xs text-slate-500 mt-1">Score: 0 correct (0%)</p>
+        </div>
+      </div>
+
+      <!-- Module Selection Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <!-- Module 1: KCET Bank -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-purple-300 transition">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 text-xs font-bold">Module 1 &bull; Q1–Q59</span>
+              <span class="text-xs font-semibold text-slate-400">59 MCQs</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">KCET Genetics Question Bank (2014–2026)</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Includes the newly added KCET 2025 &amp; 2026 official questions: AaBbCc gamete numbers, point mutation in sickle cell anaemia, Thalassemia quantitative defect, ABO blood group parental crosses, test cross verification, Turner's vs Down's symptoms, and pedigree spotters.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+              <li class="flex items-center gap-1.5">&bull; Full coverage of Karnataka CET from 2014 through 2026</li>
+              <li class="flex items-center gap-1.5">&bull; Instant switch between Document View and Practice Quiz modes</li>
+            </ul>
+          </div>
+          <div class="flex items-center gap-3 pt-2">
+            <button id="cardKcetDocBtn" type="button" class="flex-1 py-2 rounded-xl bg-purple-600 text-white font-semibold text-xs hover:bg-purple-700 transition">
+              Read Question Bank
+            </button>
+            <button id="cardKcetQuizBtn" type="button" class="flex-1 py-2 rounded-xl bg-purple-50 text-purple-700 font-semibold text-xs hover:bg-purple-100 transition">
+              Start Practice Quiz
+            </button>
+          </div>
+        </div>
+
+        <!-- Module 2: NEET PYQ Bank -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-emerald-300 transition">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold">Module 2 &bull; Q1–Q71</span>
+              <span class="text-xs font-semibold text-slate-400">71 MCQs</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">NEET &amp; AIPMT PYQ Bank (2000–2026)</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Comprehensive national entrance collection including Re-NEET 2026/2024 (Down's/Turner's, blood group O parental exclusions), NEET 2025 (polygenic traits, F2 pedigrees, dihybrid ratios), NEET 2024 May (Glu to Val at 6th position, honeybee haplodiploidy), and NTA 304 E questions.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+              <li class="flex items-center gap-1.5">&bull; Rigorous matching tables, multi-statement, and assertion-reasoning items</li>
+              <li class="flex items-center gap-1.5">&bull; Complete NCERT rationales and quick answer matrix</li>
+            </ul>
+          </div>
+          <div class="flex items-center gap-3 pt-2">
+            <button id="cardNeetDocBtn" type="button" class="flex-1 py-2 rounded-xl bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition">
+              Read Question Bank
+            </button>
+            <button id="cardNeetQuizBtn" type="button" class="flex-1 py-2 rounded-xl bg-emerald-50 text-emerald-700 font-semibold text-xs hover:bg-emerald-100 transition">
+              Start Practice Quiz
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: QUESTION BANK VIEW (FOR KCET & NEET) -->
+    <section id="bankView" class="hidden space-y-5">
+      <!-- Bank Toolbar & Controls -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-xs flex flex-wrap items-center justify-between gap-4 no-print">
+        <div>
+          <h2 id="bankTitle" class="text-xl font-bold text-slate-900">Question Bank</h2>
+          <p id="bankSubtitle" class="text-xs text-slate-500">Karnataka CET &bull; Aligned NCERT Previous Year Questions</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- View Mode Toggle -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-bold text-slate-600">
+            <button id="modeDocBtn" type="button" class="px-3 py-1.5 rounded-lg bg-white text-purple-700 shadow-xs transition">Document View</button>
+            <button id="modeQuizBtn" type="button" class="px-3 py-1.5 rounded-lg hover:text-slate-900 transition">Practice Quiz</button>
+          </div>
+
+          <!-- Answer Key Toggle -->
+          <button id="toggleAnswersBtn" type="button" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 transition">
+            Hide Answer Badges
+          </button>
+
+          <!-- Print / PDF Export Button -->
+          <button id="printBtn" type="button" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition">
+            Print / Save as PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Quiz Score Banner (visible in Quiz Mode) -->
+      <div id="quizScoreBanner" class="hidden bg-purple-50 border border-purple-200 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3 text-purple-900 no-print">
+        <div class="flex items-center gap-4 text-xs sm:text-sm font-semibold">
+          <span>Attempted: <strong id="quizAttemptedCount" class="text-purple-700 font-extrabold">0</strong></span>
+          <span>Correct: <strong id="quizCorrectCount" class="text-emerald-700 font-extrabold">0</strong></span>
+          <span>Wrong: <strong id="quizWrongCount" class="text-rose-700 font-extrabold">0</strong></span>
+          <span>Accuracy: <strong id="quizAccuracy" class="text-purple-700 font-extrabold">0%</strong></span>
+        </div>
+        <button id="resetQuizBtn" type="button" class="px-3 py-1.5 rounded-lg bg-white border border-purple-300 text-xs font-bold text-purple-700 hover:bg-purple-100 transition">
+          Reset All Answers
+        </button>
+      </div>
+
+      <!-- Filters & Instant Search -->
+      <div class="bg-white rounded-xl border border-slate-200 p-3 shadow-xs space-y-3 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex-1 min-w-[240px]">
+            <input id="searchInput" type="text" placeholder="Search keywords (e.g. pedigree, haemophilia, test cross, Down's, sickle cell)..." class="w-full text-xs px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          </div>
+          <span id="filteredCountBadge" class="text-xs font-bold text-slate-500">Showing all items</span>
+        </div>
+
+        <!-- Topic Pills -->
+        <div id="topicPillsContainer" class="flex flex-wrap gap-1.5 text-xs">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Question List Container -->
+      <div id="questionsContainer" class="space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Master Answer Key Matrix (At Bottom) -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
+        <h3 class="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Quick Answer Key Matrix</h3>
+        <div id="answerKeyMatrix" class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-12 gap-1.5 text-xs font-bold">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: NCERT HIGH-YIELD REVISION NOTES -->
+    <section id="notesView" class="hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+        <div class="border-b border-slate-100 pb-4 mb-6">
+          <span class="px-2.5 py-1 rounded-md bg-purple-100 text-purple-800 text-xs font-bold">NCERT Class 12 Chapter 4</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Principles of Inheritance and Variation — High-Yield Revision Summary</h2>
+          <p class="text-xs text-slate-500 mt-1">Key concepts, contrasting traits, ratios, chromosomal behavior, linkage data, and genetic disorders.</p>
+        </div>
+
+        <!-- Section 1: Mendel's Contrasting Traits -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed mb-8">
+          <h3 class="text-base font-bold text-purple-900 border-b border-purple-100 pb-2 flex items-center gap-2">
+            1. Mendel's Seven Pairs of Contrasting Traits in Garden Pea (Table 4.1)
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse border border-slate-200 text-xs">
+              <thead class="bg-slate-100 font-bold text-slate-800">
+                <tr>
+                  <th class="border border-slate-200 p-2">Character</th>
+                  <th class="border border-slate-200 p-2 text-emerald-700">Dominant Trait</th>
+                  <th class="border border-slate-200 p-2 text-rose-700">Recessive Trait</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="border border-slate-200 p-2 font-semibold">1. Stem height</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Tall (T)</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Dwarf (t)</td></tr>
+                <tr class="bg-slate-50"><td class="border border-slate-200 p-2 font-semibold">2. Flower colour</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Violet</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">White</td></tr>
+                <tr><td class="border border-slate-200 p-2 font-semibold">3. Flower position</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Axial</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Terminal</td></tr>
+                <tr class="bg-slate-50"><td class="border border-slate-200 p-2 font-semibold">4. Pod shape</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Inflated (full)</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Constricted</td></tr>
+                <tr><td class="border border-slate-200 p-2 font-semibold">5. Pod colour</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Green</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Yellow</td></tr>
+                <tr class="bg-slate-50"><td class="border border-slate-200 p-2 font-semibold">6. Seed shape</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Round (R)</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Wrinkled (r)</td></tr>
+                <tr><td class="border border-slate-200 p-2 font-semibold">7. Seed colour</td><td class="border border-slate-200 p-2 text-emerald-800 font-medium">Yellow (Y)</td><td class="border border-slate-200 p-2 text-rose-800 font-medium">Green (y)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 2: Important Ratios -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed mb-8">
+          <h3 class="text-base font-bold text-purple-900 border-b border-purple-100 pb-2 flex items-center gap-2">
+            2. Classical Genetics Ratios Summary
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <p class="font-bold text-slate-900">Monohybrid Cross (Tt x Tt)</p>
+              <p>&bull; <strong>Phenotypic ratio:</strong> 3 Tall : 1 Dwarf (3:1)</p>
+              <p>&bull; <strong>Genotypic ratio:</strong> 1 TT : 2 Tt : 1 tt (1:2:1)</p>
+              <p>&bull; <strong>Monohybrid test cross:</strong> 1 Tall : 1 Dwarf (1:1)</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <p class="font-bold text-slate-900">Dihybrid Cross (RrYy x RrYy)</p>
+              <p>&bull; <strong>Phenotypic ratio:</strong> 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green (9:3:3:1)</p>
+              <p>&bull; <strong>Genotypic ratio:</strong> 1:2:1:2:4:2:1:2:1 (16 combinations, 9 genotypes)</p>
+              <p>&bull; <strong>Dihybrid test cross:</strong> 1:1:1:1 (RrYy x rryy)</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <p class="font-bold text-slate-900">Incomplete Dominance (Snapdragon)</p>
+              <p>&bull; Cross: Red (RR) x White (rr) &rarr; F1 Pink (Rr)</p>
+              <p>&bull; <strong>Phenotypic ratio = Genotypic ratio:</strong> 1 Red : 2 Pink : 1 White (1:2:1)</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <p class="font-bold text-slate-900">Co-dominance &amp; Multiple Alleles (ABO Blood)</p>
+              <p>&bull; Gene I with 3 alleles: I^A, I^B, i</p>
+              <p>&bull; <strong>6 Genotypes:</strong> I^A I^A, I^A i, I^B I^B, I^B i, I^A I^B, ii</p>
+              <p>&bull; <strong>4 Phenotypes:</strong> Blood Group A, B, AB, O</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Linkage & Recombination (Morgan's Drosophila) -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed mb-8">
+          <h3 class="text-base font-bold text-purple-900 border-b border-purple-100 pb-2 flex items-center gap-2">
+            3. Linkage, Recombination &amp; Sex Determination
+          </h3>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <p><strong>T.H. Morgan's Drosophila Dihybrid Crosses:</strong></p>
+            <p>&bull; <strong>Cross A (Body colour &amp; eye colour):</strong> Genes yellow (y) and white (w) are tightly linked &rarr; <strong>98.7% Parental types</strong> and <strong>1.3% Recombinants</strong>.</p>
+            <p>&bull; <strong>Cross B (Eye colour &amp; wing size):</strong> Genes white (w) and miniature wing (m) are loosely linked &rarr; <strong>62.8% Parental types</strong> and <strong>37.2% Recombinants</strong>.</p>
+            <p>&bull; <strong>Genetic Mapping:</strong> Alfred Sturtevant used recombination frequency as a measure of distance: 1% recombination = 1 map unit = 1 centimorgan (cM).</p>
+            <p class="pt-2"><strong>Sex Determination Systems:</strong></p>
+            <p>&bull; <strong>XX-XY type:</strong> Human beings and <em>Drosophila</em> (Male heterogamety: 50% X and 50% Y sperm).</p>
+            <p>&bull; <strong>XX-XO type:</strong> Insects like Grasshoppers (Male heterogamety: males have autosomes + XO, females have autosomes + XX).</p>
+            <p>&bull; <strong>ZZ-ZW type:</strong> Birds (Female heterogamety: female is ZW, male is ZZ).</p>
+            <p>&bull; <strong>Haplodiploid system:</strong> Honeybees (Females 2n = 32 developed from fertilized eggs; Males n = 16 developed via parthenogenesis; males produce sperms by mitosis and have no father/sons, but grandfather/grandsons).</p>
+          </div>
+        </div>
+
+        <!-- Section 4: Genetic Disorders Summary -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <h3 class="text-base font-bold text-purple-900 border-b border-purple-100 pb-2 flex items-center gap-2">
+            4. Mendelian vs Chromosomal Disorders (NCERT Core Summary)
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse border border-slate-200 text-xs">
+              <thead class="bg-slate-100 font-bold text-slate-800">
+                <tr>
+                  <th class="border border-slate-200 p-2">Disorder</th>
+                  <th class="border border-slate-200 p-2">Genetic Cause &amp; Type</th>
+                  <th class="border border-slate-200 p-2">Clinical Features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-slate-200 p-2 font-bold">Haemophilia</td>
+                  <td class="border border-slate-200 p-2">Sex-linked (X-linked) recessive; single protein in blood clotting cascade affected.</td>
+                  <td class="border border-slate-200 p-2">Non-stop bleeding from simple cuts; transmitted from carrier female to sons.</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 p-2 font-bold">Sickle-cell Anaemia</td>
+                  <td class="border border-slate-200 p-2">Autosomal recessive (Chr 11); point mutation: GAG to GUG codon transversion; Glu &rarr; Val at 6th position of &beta;-globin.</td>
+                  <td class="border border-slate-200 p-2">HbS polymerises under low O2, causing RBC to become elongated and sickle-shaped.</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 p-2 font-bold">Phenylketonuria (PKU)</td>
+                  <td class="border border-slate-200 p-2">Autosomal recessive (Chr 12); deficiency of phenylalanine hydroxylase.</td>
+                  <td class="border border-slate-200 p-2">Accumulation of phenylalanine &amp; phenylpyruvic acid &rarr; mental retardation, hypopigmentation.</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 p-2 font-bold">Thalassemia</td>
+                  <td class="border border-slate-200 p-2">Autosomal recessive quantitative defect; &alpha;-thalassemia (HBA1, HBA2 on Chr 16), &beta;-thalassemia (HBB on Chr 11).</td>
+                  <td class="border border-slate-200 p-2">Reduced synthesis of &alpha; or &beta; globin chains resulting in microcytic hypochromic anaemia.</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 p-2 font-bold">Down's Syndrome</td>
+                  <td class="border border-slate-200 p-2">Autosomal aneuploidy; Trisomy of chromosome 21 (2n + 1 = 47).</td>
+                  <td class="border border-slate-200 p-2">Short stature, small round head, furrowed tongue, broad palm with crease, mental retardation.</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 p-2 font-bold">Klinefelter's Syndrome</td>
+                  <td class="border border-slate-200 p-2">Sex-chromosomal aneuploidy in males; 47, XXY.</td>
+                  <td class="border border-slate-200 p-2">Overall masculine development with feminine features (gynaecomastia); sterile.</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 p-2 font-bold">Turner's Syndrome</td>
+                  <td class="border border-slate-200 p-2">Sex-chromosomal aneuploidy in females; 45, XO (monosomy).</td>
+                  <td class="border border-slate-200 p-2">Sterile females with rudimentary ovaries, lack of secondary sexual characters, short stature.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500 no-print">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="font-semibold text-slate-700">Principles of Inheritance and Variation — High-Yield Examination Preparation Portal</p>
+      <p class="mt-1">Compiled with authentic KCET (2014–2026) and NEET/AIPMT (2000–2026) question papers and NCERT Biology guidelines.</p>
+    </div>
+  </footer>
+
+  <!-- CLIENT-SIDE SCRIPT -->
+  <script>
+    const KCET_DATA = [{"topic": "Co-dominance & Multiple Alleles", "tag": "KCET 2026", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2026 Biology Question Paper", "stem": "The genotypes of husband and wife are I^A I^B and I^A I^O. Among the blood groups of their children, how many different genotypes and phenotypes are possible?", "extras": [], "options": [{"marker": "A", "text": "4 genotypes and 4 phenotypes"}, {"marker": "B", "text": "4 genotypes and 3 phenotypes"}, {"marker": "C", "text": "3 genotypes and 4 phenotypes"}, {"marker": "D", "text": "2 genotypes and 3 phenotypes"}], "answerIndex": 1, "explanation": "Cross between I^A I^B and I^A i gives genotypes: I^A I^A (Type A), I^A i (Type A), I^A I^B (Type AB), and I^B i (Type B). Thus, there are 4 distinct genotypes (I^A I^A, I^A i, I^A I^B, I^B i) and 3 distinct phenotypes (Blood group A, AB, and B).", "num": 1}, {"topic": "Genetic Disorders & Mutations", "tag": "KCET 2026", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2026 Biology Question Paper", "stem": "The classical example of point mutation is:", "extras": [], "options": [{"marker": "A", "text": "Haemophilia"}, {"marker": "B", "text": "Sickle cell anaemia"}, {"marker": "C", "text": "Cystic fibrosis"}, {"marker": "D", "text": "Phenylketonuria"}], "answerIndex": 1, "explanation": "Sickle cell anaemia is the classic example of a point mutation resulting from the substitution of a single base pair in the gene coding for the beta-globin chain (GAG to GUG at the 6th codon), replacing glutamic acid with valine.", "num": 2}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2026", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2026 Biology Question Paper", "stem": "Read the following statements:\nStatement I: In a typical test cross, an organism showing a dominant phenotype is crossed with the recessive parent.\nStatement II: The ratio of organisms showing dominant and recessive traits in F1 generation of a test cross indicates that the organism with unknown genotype is homozygous dominant.\nChoose the correct option:", "extras": [], "options": [{"marker": "A", "text": "Both Statement I and Statement II are true"}, {"marker": "B", "text": "Both Statement I and Statement II are false"}, {"marker": "C", "text": "Statement I is true but Statement II is false"}, {"marker": "D", "text": "Statement I is false but Statement II is true"}], "answerIndex": 2, "explanation": "Statement I is true: in a test cross, an individual with dominant phenotype (unknown genotype) is crossed with a homozygous recessive parent. Statement II is false: if the unknown organism is homozygous dominant (TT), 100% of the progeny show the dominant trait. A 1:1 ratio indicates that the organism is heterozygous (Tt).", "num": 3}, {"topic": "Genetic Disorders & Mutations", "tag": "KCET 2026", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2026 Biology Question Paper", "stem": "Thalassemia and Sickle cell anaemia are due to a problem in globin molecule synthesis. Select the correct statement:", "extras": [], "options": [{"marker": "A", "text": "Sickle cell anaemia is due to a quantitative problem of globin molecule."}, {"marker": "B", "text": "Both are due to qualitative defects in globin chain synthesis."}, {"marker": "C", "text": "Both are due to quantitative defects in globin chain synthesis."}, {"marker": "D", "text": "Thalassemia is due to less synthesis of globin molecules."}], "answerIndex": 3, "explanation": "Thalassemia differs from sickle-cell anaemia in that the former is a quantitative problem of synthesising too few globin molecules (reduced rate of alpha or beta chain synthesis), while the latter is a qualitative problem of synthesising an incorrectly functioning, mutant globin molecule.", "num": 4}, {"topic": "Pedigree Analysis & Inheritance", "tag": "KCET 2026", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2026 Biology Question Paper", "stem": "In a practical examination, a pedigree chart shows that affected children are born to unaffected parents, and the trait appears equally in males and females. The pedigree chart represents:", "extras": [], "options": [{"marker": "A", "text": "Autosomal recessive trait"}, {"marker": "B", "text": "Autosomal dominant trait"}, {"marker": "C", "text": "Sex-linked dominant trait"}, {"marker": "D", "text": "Sex-linked recessive trait"}], "answerIndex": 0, "explanation": "When unaffected parents produce affected offspring (skipping generations) and both sexes are affected with equal frequency, the pattern is diagnostic of an autosomal recessive inheritance (e.g., sickle-cell anaemia, phenylketonuria).", "num": 5}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2025", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2025 Biology Question Paper (Code B/A1)", "stem": "How many types of gametes will be formed by a parent with genotype 'AaBbCc'?", "extras": [], "options": [{"marker": "A", "text": "6"}, {"marker": "B", "text": "4"}, {"marker": "C", "text": "8"}, {"marker": "D", "text": "12"}], "answerIndex": 2, "explanation": "The number of types of gametes produced by a genotype is given by 2^n, where n is the number of heterozygous gene pairs. Here, Aa, Bb, and Cc are 3 heterozygous pairs (n = 3). Thus, types of gametes = 2^3 = 8.", "num": 6}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "KCET 2025", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2025 Biology Question Paper (Code B/A1)", "stem": "When a single gene exhibits multiple phenotypic expressions, the phenomenon is called ______.", "extras": [], "options": [{"marker": "A", "text": "Polygenic inheritance"}, {"marker": "B", "text": "Incomplete dominance"}, {"marker": "C", "text": "Pleiotropy"}, {"marker": "D", "text": "Co-dominance"}], "answerIndex": 2, "explanation": "Pleiotropy occurs when a single gene influences multiple unrelated phenotypic traits. A classical example in humans is phenylketonuria, where a mutation in the phenylalanine hydroxylase gene causes mental retardation as well as reduction in hair and skin pigmentation.", "num": 7}, {"topic": "Sex-Linked Inheritance", "tag": "KCET 2025", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2025 Biology Question Paper (Code B/A1)", "stem": "A colourblind man marries a carrier woman. The percentage of their colourblind progeny in the next generation will be ______.", "extras": [], "options": [{"marker": "A", "text": "25%"}, {"marker": "B", "text": "50%"}, {"marker": "C", "text": "75%"}, {"marker": "D", "text": "100%"}], "answerIndex": 1, "explanation": "Cross: Colourblind man (X^c Y) x Carrier woman (X^C X^c). The offspring genotypes are: X^C X^c (carrier daughter), X^c X^c (colourblind daughter), X^C Y (normal son), and X^c Y (colourblind son). Out of 4 total children, 2 are colourblind (1 female + 1 male). Thus, 2/4 = 50% of the total progeny are colourblind.", "num": 8}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2025", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2025 Biology Question Paper (Code B/A1)", "stem": "Identify which one of the given pair of options is correct with respect to Down's syndrome and Turner's syndrome symptoms:", "extras": [{"type": "table", "title": "Down's syndrome vs Turner's syndrome", "headers": ["Option", "Down's syndrome symptoms", "Turner's syndrome symptoms"], "rows": [["A", "Short-statured individual", "Gynaecomastia in man"], ["B", "Round head, partially open mouth", "Overall masculine development"], ["C", "Broad palm, physical and mental development retarded", "Sterile females with rudimentary ovaries"], ["D", "Additional copy of an X-chromosome", "Absence of an X-chromosome"]]}], "options": [{"marker": "A", "text": "Option A"}, {"marker": "B", "text": "Option B"}, {"marker": "C", "text": "Option C"}, {"marker": "D", "text": "Option D"}], "answerIndex": 2, "explanation": "Option C is correct. Down's syndrome individuals exhibit short stature, round head, furrowed tongue, broad palm with crease, and physical, psychomotor, and mental retardation. Turner's syndrome females have 45 chromosomes (XO) and are sterile due to rudimentary ovaries. Gynaecomastia occurs in Klinefelter's syndrome (XXY).", "num": 9}, {"topic": "Pedigree Analysis & Inheritance", "tag": "KCET 2025", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2025 Biology Question Paper (Code B/A1)", "stem": "In a practical examination, a pedigree chart shows that an unaffected female transmits a disorder to 50% of her sons, while none of her daughters exhibit the disease though some are carriers. This pedigree chart demonstrates:", "extras": [], "options": [{"marker": "A", "text": "Autosomal dominant"}, {"marker": "B", "text": "Autosomal recessive"}, {"marker": "C", "text": "X-linked recessive"}, {"marker": "D", "text": "Y-linked inheritance"}], "answerIndex": 2, "explanation": "An X-linked recessive disorder (such as haemophilia or red-green colour blindness) shows criss-cross inheritance where a carrier heterozygous female transmits the defective allele on the X chromosome to 50% of her sons, who express the trait because they are hemizygous.", "num": 10}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2024", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2024 Biology Paper", "stem": "In garden pea, round seed shape (R) is dominant over wrinkled (r) and yellow seed colour (Y) is dominant over green (y). What proportion of offspring will be round and green in a dihybrid cross between heterozygous parents (RrYy x RrYy)?", "extras": [], "options": [{"marker": "A", "text": "9/16"}, {"marker": "B", "text": "3/16"}, {"marker": "C", "text": "1/16"}, {"marker": "D", "text": "6/16"}], "answerIndex": 1, "explanation": "In Mendel's dihybrid F2 generation (9:3:3:1 ratio): Round Yellow = 9/16, Round Green = 3/16, Wrinkled Yellow = 3/16, and Wrinkled Green = 1/16.", "num": 11}, {"topic": "Incomplete Dominance & Co-dominance", "tag": "KCET 2024", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2024 Biology Paper", "stem": "In snapdragon (Antirrhinum majus), when a pink flowered plant (Rr) is self-pollinated, what is the phenotypic ratio in the progeny?", "extras": [], "options": [{"marker": "A", "text": "3 Red : 1 White"}, {"marker": "B", "text": "1 Red : 2 Pink : 1 White"}, {"marker": "C", "text": "2 Red : 1 Pink : 1 White"}, {"marker": "D", "text": "All Pink"}], "answerIndex": 1, "explanation": "Flower colour in snapdragon demonstrates incomplete dominance. The cross Rr x Rr produces 1 RR (Red) : 2 Rr (Pink) : 1 rr (White). Both the genotypic and phenotypic ratios are identical at 1:2:1.", "num": 12}, {"topic": "Co-dominance & Multiple Alleles", "tag": "KCET 2023", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2023 Biology Paper", "stem": "How many different genotypes and phenotypes are possible in human population for ABO blood grouping?", "extras": [], "options": [{"marker": "A", "text": "6 genotypes and 4 phenotypes"}, {"marker": "B", "text": "4 genotypes and 6 phenotypes"}, {"marker": "C", "text": "3 genotypes and 4 phenotypes"}, {"marker": "D", "text": "6 genotypes and 6 phenotypes"}], "answerIndex": 0, "explanation": "ABO blood groups are governed by three alleles (I^A, I^B, i). The number of genotypes is given by n(n+1)/2 = 3(4)/2 = 6 genotypes (I^A I^A, I^A i, I^B I^B, I^B i, I^A I^B, ii), producing 4 distinct phenotypes (A, B, AB, O).", "num": 13}, {"topic": "Linkage & Recombination", "tag": "KCET 2023", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2023 Biology Paper", "stem": "In Morgan's dihybrid crosses on Drosophila melanogaster, what percentage of recombinants were observed in Cross A (body colour and eye colour)?", "extras": [], "options": [{"marker": "A", "text": "37.2%"}, {"marker": "B", "text": "1.3%"}, {"marker": "C", "text": "62.8%"}, {"marker": "D", "text": "98.7%"}], "answerIndex": 1, "explanation": "In Drosophila, the genes for yellow body (y) and white eyes (w) are very tightly linked on the X chromosome and showed only 1.3% recombination (98.7% parental types). In contrast, white eye and miniature wing showed 37.2% recombination.", "num": 14}, {"topic": "Linkage & Recombination", "tag": "KCET 2022", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2022 Biology Paper", "stem": "Who utilized the frequency of recombination between gene pairs on the same chromosome as a measure of the distance between genes and mapped their position?", "extras": [], "options": [{"marker": "A", "text": "Thomas Hunt Morgan"}, {"marker": "B", "text": "Walter Sutton"}, {"marker": "C", "text": "Alfred Sturtevant"}, {"marker": "D", "text": "Theodore Boveri"}], "answerIndex": 2, "explanation": "Alfred Sturtevant, a student of T.H. Morgan, used the frequency of recombination between gene pairs on the same chromosome as a measure of distance between genes and constructed the first genetic map.", "num": 15}, {"topic": "Sex Determination", "tag": "KCET 2022", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2022 Biology Paper", "stem": "Which of the following organisms exhibits female heterogamety (ZW-ZZ sex determination mechanism)?", "extras": [], "options": [{"marker": "A", "text": "Drosophila melanogaster"}, {"marker": "B", "text": "Grasshopper"}, {"marker": "C", "text": "Birds (e.g., Fowl)"}, {"marker": "D", "text": "Human beings"}], "answerIndex": 2, "explanation": "In birds, the female is heterogametic with two different sex chromosomes (ZW) producing two types of eggs (Z-bearing and W-bearing), while the male is homogametic with two identical sex chromosomes (ZZ).", "num": 16}, {"topic": "Sex Determination", "tag": "KCET 2021", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2021 Biology Paper", "stem": "In grasshoppers, sex determination is of the XO type. What is the chromosomal composition of a male grasshopper?", "extras": [], "options": [{"marker": "A", "text": "Autosomes + XX"}, {"marker": "B", "text": "Autosomes + XO"}, {"marker": "C", "text": "Autosomes + XY"}, {"marker": "D", "text": "Autosomes + ZZ"}], "answerIndex": 1, "explanation": "In grasshoppers, males have one less chromosome than females: males have Autosomes + XO (only one X chromosome), whereas females have Autosomes + XX.", "num": 17}, {"topic": "Sex Determination", "tag": "KCET 2021", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2021 Biology Paper", "stem": "In honeybees, males (drones) develop by parthenogenesis and have 16 chromosomes, while females (queens and workers) are diploid with 32 chromosomes. Sperms in male honeybees are produced by:", "extras": [], "options": [{"marker": "A", "text": "Meiosis"}, {"marker": "B", "text": "Mitosis"}, {"marker": "C", "text": "Amitosis"}, {"marker": "D", "text": "Endoreduplication"}], "answerIndex": 1, "explanation": "Male honeybees are haploid (n = 16) resulting from unfertilized eggs via parthenogenesis. Since they are already haploid, they produce sperms by mitosis without undergoing meiosis.", "num": 18}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2020", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2020 Biology Paper", "stem": "Klinefelter's syndrome in humans is characterized by which of the following karyotypes?", "extras": [], "options": [{"marker": "A", "text": "45 with XO"}, {"marker": "B", "text": "47 with XXY"}, {"marker": "C", "text": "47 with trisomy 21"}, {"marker": "D", "text": "47 with XYY"}], "answerIndex": 1, "explanation": "Klinefelter's syndrome is caused by the presence of an additional X chromosome in males, resulting in a 47, XXY karyotype. Affected individuals have overall masculine development with feminised characters such as gynaecomastia and are sterile.", "num": 19}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2020", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2020 Biology Paper", "stem": "Down's syndrome is caused due to:", "extras": [], "options": [{"marker": "A", "text": "Monosomy of chromosome 21"}, {"marker": "B", "text": "Trisomy of chromosome 21"}, {"marker": "C", "text": "Monosomy of X chromosome"}, {"marker": "D", "text": "Trisomy of chromosome 18"}], "answerIndex": 1, "explanation": "Down's syndrome (first described by Langdon Down in 1866) is caused by the presence of an additional copy of chromosome number 21 (trisomy of 21, karyotype 47 chromosomes).", "num": 20}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2019", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2019 Biology Paper", "stem": "Turner's syndrome in females is caused due to:", "extras": [], "options": [{"marker": "A", "text": "Absence of one X chromosome (45, XO)"}, {"marker": "B", "text": "Additional copy of X chromosome (47, XXX)"}, {"marker": "C", "text": "Trisomy of chromosome 21"}, {"marker": "D", "text": "Presence of an extra Y chromosome (47, XYY)"}], "answerIndex": 0, "explanation": "Turner's syndrome is caused due to monosomy of the sex chromosome in human females (45 with XO). Affected females are sterile due to rudimentary ovaries and lack secondary sexual characteristics.", "num": 21}, {"topic": "Mendelian Disorders", "tag": "KCET 2019", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2019 Biology Paper", "stem": "Queen Victoria of England was a carrier of which famous sex-linked recessive disorder?", "extras": [], "options": [{"marker": "A", "text": "Colour blindness"}, {"marker": "B", "text": "Sickle cell anaemia"}, {"marker": "C", "text": "Haemophilia"}, {"marker": "D", "text": "Thalassemia"}], "answerIndex": 2, "explanation": "Queen Victoria was a carrier of haemophilia (an X-linked recessive blood clotting disorder), and her pedigree shows a number of haemophilic descendants across European royal families.", "num": 22}, {"topic": "Mendelian Disorders", "tag": "KCET 2018", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2018 Biology Paper", "stem": "In phenylketonuria, the patient lacks the enzyme phenylalanine hydroxylase which normally converts phenylalanine into:", "extras": [], "options": [{"marker": "A", "text": "Alanine"}, {"marker": "B", "text": "Tyrosine"}, {"marker": "C", "text": "Glutamic acid"}, {"marker": "D", "text": "Tryptophan"}], "answerIndex": 1, "explanation": "Phenylketonuria (PKU) is an autosomal recessive inborn error of metabolism where the affected individual lacks the hepatic enzyme phenylalanine hydroxylase that converts phenylalanine into tyrosine.", "num": 23}, {"topic": "Mendelian Disorders", "tag": "KCET 2018", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2018 Biology Paper", "stem": "Alpha Thalassemia in humans is controlled by two closely linked genes located on which chromosome?", "extras": [], "options": [{"marker": "A", "text": "Chromosome 11"}, {"marker": "B", "text": "Chromosome 16"}, {"marker": "C", "text": "Chromosome 21"}, {"marker": "D", "text": "X chromosome"}], "answerIndex": 1, "explanation": "Alpha-thalassemia is controlled by two closely linked genes, HBA1 and HBA2, located on chromosome 16 of each parent. Beta-thalassemia is controlled by a single gene HBB on chromosome 11.", "num": 24}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "KCET 2017", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2017 Biology Paper", "stem": "In pea seeds, starch synthesis is controlled by one gene with two alleles B and b. Heterozygotes (Bb) produce starch grains of intermediate size. If starch grain size is considered as the phenotype, this allele pair demonstrates:", "extras": [], "options": [{"marker": "A", "text": "Complete dominance"}, {"marker": "B", "text": "Incomplete dominance"}, {"marker": "C", "text": "Co-dominance"}, {"marker": "D", "text": "Recessive epistasis"}], "answerIndex": 1, "explanation": "BB homozygotes produce large starch grains, bb produce small starch grains, and Bb heterozygotes produce intermediate-sized starch grains, demonstrating incomplete dominance when grain size is examined.", "num": 25}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2017", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2017 Biology Paper", "stem": "A cross between an F1 hybrid and its homozygous recessive parent is known as:", "extras": [], "options": [{"marker": "A", "text": "Back cross"}, {"marker": "B", "text": "Test cross"}, {"marker": "C", "text": "Reciprocal cross"}, {"marker": "D", "text": "Monohybrid cross"}], "answerIndex": 1, "explanation": "Crossing an individual with a dominant phenotype to a homozygous recessive individual is specifically termed a test cross. It is used to test whether the dominant individual is homozygous or heterozygous.", "num": 26}, {"topic": "Chromosomal Theory of Inheritance", "tag": "KCET 2016", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2016 Biology Paper", "stem": "The Chromosomal Theory of Inheritance was proposed by:", "extras": [], "options": [{"marker": "A", "text": "Gregor Mendel"}, {"marker": "B", "text": "Sutton and Boveri"}, {"marker": "C", "text": "T.H. Morgan"}, {"marker": "D", "text": "Hugo de Vries"}], "answerIndex": 1, "explanation": "Walter Sutton and Theodore Boveri (1902) noted the parallelism between chromosome behavior and Mendelian factor behavior during meiosis and proposed the Chromosomal Theory of Inheritance.", "num": 27}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2016", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2016 Biology Paper", "stem": "How many pairs of contrasting characters in pea plants were studied by Mendel in his experiments?", "extras": [], "options": [{"marker": "A", "text": "5 pairs"}, {"marker": "B", "text": "7 pairs"}, {"marker": "C", "text": "14 pairs"}, {"marker": "D", "text": "12 pairs"}], "answerIndex": 1, "explanation": "Mendel studied 7 characters with 7 pairs of contrasting traits (comprising 14 true-breeding pea plant varieties).", "num": 28}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2015", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2015 Biology Paper", "stem": "Which of the following characters was selected by Mendel that had 'Green' as the dominant trait?", "extras": [], "options": [{"marker": "A", "text": "Seed colour"}, {"marker": "B", "text": "Pod colour"}, {"marker": "C", "text": "Flower colour"}, {"marker": "D", "text": "Stem height"}], "answerIndex": 1, "explanation": "In pea plants, for pod colour, green is dominant and yellow is recessive. In contrast, for seed colour, yellow is dominant and green is recessive.", "num": 29}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2015", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2015 Biology Paper", "stem": "What is the expected genotypic ratio in the F2 generation of a Mendelian monohybrid cross?", "extras": [], "options": [{"marker": "A", "text": "3 : 1"}, {"marker": "B", "text": "1 : 2 : 1"}, {"marker": "C", "text": "9 : 3 : 3 : 1"}, {"marker": "D", "text": "1 : 1"}], "answerIndex": 1, "explanation": "In a monohybrid cross (e.g., Tt x Tt), the genotypic ratio in F2 is 1 TT : 2 Tt : 1 tt (1:2:1), while the phenotypic ratio is 3 tall : 1 dwarf (3:1).", "num": 30}, {"topic": "Chromosomal Theory of Inheritance", "tag": "KCET 2014", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2014 Biology Paper", "stem": "Why did T.H. Morgan select Drosophila melanogaster for his genetical studies?", "extras": [], "options": [{"marker": "A", "text": "They complete their life cycle in about two weeks"}, {"marker": "B", "text": "A single mating could produce a large number of progeny"}, {"marker": "C", "text": "There was a clear differentiation of sexes (male and female)"}, {"marker": "D", "text": "All of the above"}], "answerIndex": 3, "explanation": "Morgan chose Drosophila melanogaster because they can be grown on simple synthetic medium, complete their life cycle in ~2 weeks, produce large progeny per mating, have easily distinguishable sexes, and show numerous hereditary variations under a low-power microscope.", "num": 31}, {"topic": "Sex-Linked Inheritance", "tag": "KCET 2014", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2014 Biology Paper", "stem": "Why is haemophilia rarely observed in human females?", "extras": [], "options": [{"marker": "A", "text": "Females have higher clotting factor VIII levels"}, {"marker": "B", "text": "Mother has to be at least carrier and father must be haemophilic"}, {"marker": "C", "text": "It is an autosomal dominant disorder"}, {"marker": "D", "text": "It is linked exclusively to the Y chromosome"}], "answerIndex": 1, "explanation": "Since haemophilia is an X-linked recessive disorder (X^h X^h for affected female), a girl can be haemophilic only if she inherits an X^h from both parents\u2014meaning the mother must be at least a carrier (X^H X^h) and the father must be haemophilic (X^h Y, which is rare as such males often do not survive to reproductive age).", "num": 32}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2024", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2024 Biology Paper", "stem": "The law of independent assortment is based on the observations of:", "extras": [], "options": [{"marker": "A", "text": "Monohybrid crosses"}, {"marker": "B", "text": "Dihybrid crosses"}, {"marker": "C", "text": "Test crosses only"}, {"marker": "D", "text": "Back crosses only"}], "answerIndex": 1, "explanation": "Mendel's Law of Independent Assortment was derived from his observations on dihybrid crosses involving two pairs of contrasting traits (such as seed shape and seed colour).", "num": 33}, {"topic": "Polygenic Inheritance", "tag": "KCET 2023", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2023 Biology Paper", "stem": "In human skin colour polygenic inheritance controlled by three genes (A, B, C), which genotype produces the darkest skin colour?", "extras": [], "options": [{"marker": "A", "text": "AaBbCc"}, {"marker": "B", "text": "AABBCC"}, {"marker": "C", "text": "aabbcc"}, {"marker": "D", "text": "AAbbCC"}], "answerIndex": 1, "explanation": "In human skin colour inheritance, the alleles show an additive effect. AABBCC with all 6 dominant alleles produces the maximum melanin and darkest skin colour, while aabbcc produces the lightest.", "num": 34}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2022", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2022 Biology Paper", "stem": "A cross between pure breeding tall plant with yellow seeds (TTYY) and pure breeding dwarf plant with green seeds (ttyy) produces F1 progeny with genotype:", "extras": [], "options": [{"marker": "A", "text": "TTYY"}, {"marker": "B", "text": "TtYy"}, {"marker": "C", "text": "ttyy"}, {"marker": "D", "text": "TtYY"}], "answerIndex": 1, "explanation": "The cross TTYY x ttyy yields all heterozygous dihybrid F1 plants with genotype TtYy exhibiting the dominant phenotype (tall with yellow seeds).", "num": 35}, {"topic": "Chromosomal Theory of Inheritance", "tag": "KCET 2021", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2021 Biology Paper", "stem": "Who rediscovered Mendel's laws independently in the year 1900?", "extras": [], "options": [{"marker": "A", "text": "Sutton, Boveri and Morgan"}, {"marker": "B", "text": "de Vries, Correns and von Tschermak"}, {"marker": "C", "text": "Watson, Crick and Wilkins"}, {"marker": "D", "text": "Avery, MacLeod and McCarty"}], "answerIndex": 1, "explanation": "In 1900, three scientists\u2014Hugo de Vries (Holland), Carl Correns (Germany), and Erich von Tschermak (Austria)\u2014independently rediscovered Mendel's principles of inheritance.", "num": 36}, {"topic": "Co-dominance & Multiple Alleles", "tag": "KCET 2020", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2020 Biology Paper", "stem": "Which of the following blood groups demonstrates co-dominance in humans?", "extras": [], "options": [{"marker": "A", "text": "Blood group A"}, {"marker": "B", "text": "Blood group B"}, {"marker": "C", "text": "Blood group AB"}, {"marker": "D", "text": "Blood group O"}], "answerIndex": 2, "explanation": "In individuals with genotype I^A I^B, both allele I^A and allele I^B express their respective sugar polymers on the RBC surface, demonstrating co-dominance and producing the AB blood group.", "num": 37}, {"topic": "Mendelian Disorders", "tag": "KCET 2019", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2019 Biology Paper", "stem": "Which amino acid residue is replaced by valine at the 6th position of beta-globin chain in sickle-cell anaemia?", "extras": [], "options": [{"marker": "A", "text": "Aspartic acid"}, {"marker": "B", "text": "Glutamic acid"}, {"marker": "C", "text": "Lysine"}, {"marker": "D", "text": "Histidine"}], "answerIndex": 1, "explanation": "In sickle cell anaemia, the normal glutamic acid (encoded by GAG) at the sixth position of the beta-globin chain is replaced by valine (encoded by GUG).", "num": 38}, {"topic": "Sex Determination", "tag": "KCET 2018", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2018 Biology Paper", "stem": "Who traced a specific nuclear structure called 'X body' all through spermatogenesis in insects in 1891?", "extras": [], "options": [{"marker": "A", "text": "Henking"}, {"marker": "B", "text": "T.H. Morgan"}, {"marker": "C", "text": "Walter Sutton"}, {"marker": "D", "text": "Alfred Sturtevant"}], "answerIndex": 0, "explanation": "Hermann Henking (1891) traced a distinct nuclear structure during spermatogenesis in certain insects and called it the 'X body', which was later recognized as the X chromosome.", "num": 39}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2017", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2017 Biology Paper", "stem": "Failure of segregation of chromatids during cell division resulting in gain or loss of a chromosome is called:", "extras": [], "options": [{"marker": "A", "text": "Polyploidy"}, {"marker": "B", "text": "Aneuploidy"}, {"marker": "C", "text": "Euploidy"}, {"marker": "D", "text": "Monoploidy"}], "answerIndex": 1, "explanation": "Aneuploidy refers to the condition where non-disjunction of chromatids during cell division causes the gain or loss of one or more individual chromosomes (e.g., trisomy 21 or monosomy X).", "num": 40}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "KCET 2016", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2016 Biology Paper", "stem": "Failure of cytokinesis after telophase stage of cell division results in an increase in a whole set of chromosomes in an organism, known as:", "extras": [], "options": [{"marker": "A", "text": "Aneuploidy"}, {"marker": "B", "text": "Polyploidy"}, {"marker": "C", "text": "Monosomy"}, {"marker": "D", "text": "Trisomy"}], "answerIndex": 1, "explanation": "Failure of cytokinesis following telophase leads to the duplication of an entire chromosome set (polyploidy), a condition frequently observed in plants.", "num": 41}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2015", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2015 Biology Paper", "stem": "A true-breeding line in pea plant is produced by:", "extras": [], "options": [{"marker": "A", "text": "Continuous self-pollination"}, {"marker": "B", "text": "Continuous cross-pollination"}, {"marker": "C", "text": "Vegetative propagation"}, {"marker": "D", "text": "Tissue culture"}], "answerIndex": 0, "explanation": "A true-breeding line is one that, having undergone continuous self-pollination for several generations, displays stable trait inheritance and homozygosity.", "num": 42}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2014", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2014 Biology Paper", "stem": "Which of the following traits in garden pea is recessive?", "extras": [], "options": [{"marker": "A", "text": "Violet flower colour"}, {"marker": "B", "text": "Yellow pod colour"}, {"marker": "C", "text": "Axial flower position"}, {"marker": "D", "text": "Round seed shape"}], "answerIndex": 1, "explanation": "For pod colour in pea, green is dominant and yellow is recessive. For flower colour, violet is dominant and white is recessive. For flower position, axial is dominant and terminal is recessive.", "num": 43}, {"topic": "Co-dominance & Multiple Alleles", "tag": "KCET 2024", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2024 Biology Paper", "stem": "In the human population, a child has blood group O. If the mother has blood group A and father has blood group B, what are the genotypes of the parents?", "extras": [], "options": [{"marker": "A", "text": "I^A I^A and I^B I^B"}, {"marker": "B", "text": "I^A i and I^B i"}, {"marker": "C", "text": "I^A I^A and I^B i"}, {"marker": "D", "text": "I^A i and I^B I^B"}], "answerIndex": 1, "explanation": "Child with blood group O has genotype ii. Therefore, both parents must carry the recessive i allele. Mother with blood group A is I^A i, and father with blood group B is I^B i.", "num": 44}, {"topic": "Linkage & Recombination", "tag": "KCET 2023", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2023 Biology Paper", "stem": "If two genes are situated very close to each other on the same chromosome, the proportion of parental phenotypes in the progeny will be:", "extras": [], "options": [{"marker": "A", "text": "Much higher than non-parental types"}, {"marker": "B", "text": "Equal to non-parental types (50%)"}, {"marker": "C", "text": "Lower than non-parental types"}, {"marker": "D", "text": "Zero parental types"}], "answerIndex": 0, "explanation": "When genes are tightly linked on the same chromosome, crossing over is infrequent, resulting in a significantly higher proportion of parental phenotypes (>50%) and very low recombination.", "num": 45}, {"topic": "Mendelian Disorders", "tag": "KCET 2022", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2022 Biology Paper", "stem": "Which of the following Mendelian disorders is an autosomal recessive inborn error of metabolism?", "extras": [], "options": [{"marker": "A", "text": "Haemophilia"}, {"marker": "B", "text": "Colour blindness"}, {"marker": "C", "text": "Phenylketonuria"}, {"marker": "D", "text": "Klinefelter's syndrome"}], "answerIndex": 2, "explanation": "Phenylketonuria is an autosomal recessive metabolic disorder. Haemophilia and colour blindness are sex-linked recessive, while Klinefelter's is a chromosomal disorder.", "num": 46}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2021", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2021 Biology Paper", "stem": "What is the phenotypic test cross ratio for a dihybrid cross involving two unlinked independently assorting genes?", "extras": [], "options": [{"marker": "A", "text": "9 : 3 : 3 : 1"}, {"marker": "B", "text": "1 : 1 : 1 : 1"}, {"marker": "C", "text": "3 : 1"}, {"marker": "D", "text": "1 : 2 : 1"}], "answerIndex": 1, "explanation": "A dihybrid test cross (AaBb x aabb) produces four phenotypic classes in equal proportions: 1:1:1:1.", "num": 47}, {"topic": "Sex-Linked Inheritance", "tag": "KCET 2020", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2020 Biology Paper", "stem": "A normal vision man whose father was colourblind marries a normal vision woman whose mother was colourblind. What is the probability that their first son will be colourblind?", "extras": [], "options": [{"marker": "A", "text": "0%"}, {"marker": "B", "text": "25%"}, {"marker": "C", "text": "50%"}, {"marker": "D", "text": "100%"}], "answerIndex": 2, "explanation": "The man has normal vision (X^C Y, receiving Y from father and normal X from mother). The woman has normal vision but her mother was colourblind (X^c X^c), so she must be a carrier (X^C X^c). When they have a son, he has a 50% chance of receiving the X^c chromosome from the carrier mother, so probability of a son being colourblind is 50% (1/2).", "num": 48}, {"topic": "Chromosomal Theory of Inheritance", "tag": "KCET 2019", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2019 Biology Paper", "stem": "During which phase of meiosis do homologous chromosome pairs separate and segregate from each other?", "extras": [], "options": [{"marker": "A", "text": "Anaphase I"}, {"marker": "B", "text": "Anaphase II"}, {"marker": "C", "text": "Metaphase I"}, {"marker": "D", "text": "Telophase II"}], "answerIndex": 0, "explanation": "During Anaphase I of meiosis, the two homologous chromosomes of each pair separate and move to opposite poles, providing the physical basis for Mendel's law of segregation.", "num": 49}, {"topic": "Mendelian Disorders", "tag": "KCET 2018", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2018 Biology Paper", "stem": "Beta-Thalassemia in humans is controlled by a single gene located on which chromosome?", "extras": [], "options": [{"marker": "A", "text": "Chromosome 16"}, {"marker": "B", "text": "Chromosome 11"}, {"marker": "C", "text": "Chromosome 21"}, {"marker": "D", "text": "Chromosome 1"}], "answerIndex": 1, "explanation": "Beta-thalassemia is caused by mutations in the single HBB gene located on chromosome 11 of each parent.", "num": 50}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2017", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2017 Biology Paper", "stem": "When Mendel self-pollinated tall F2 plants, what did he discover regarding the dwarf F2 plants?", "extras": [], "options": [{"marker": "A", "text": "Dwarf plants continued to generate dwarf progeny in F3 and F4 generations"}, {"marker": "B", "text": "Dwarf plants segregated into tall and dwarf in 3:1 ratio"}, {"marker": "C", "text": "Dwarf plants turned into tall plants due to environment"}, {"marker": "D", "text": "Dwarf plants were sterile"}], "answerIndex": 0, "explanation": "Mendel found that dwarf F2 plants bred true, continuing to produce exclusively dwarf offspring in F3 and F4 generations because they are homozygous recessive (tt).", "num": 51}, {"topic": "Pedigree Analysis & Symbols", "tag": "KCET 2016", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2016 Biology Paper", "stem": "In standard human pedigree analysis, what symbol represents mating between relatives (consanguineous mating)?", "extras": [], "options": [{"marker": "A", "text": "Single horizontal line between square and circle"}, {"marker": "B", "text": "Double horizontal lines between square and circle"}, {"marker": "C", "text": "Filled square with arrow"}, {"marker": "D", "text": "Diamond with a dot"}], "answerIndex": 1, "explanation": "In pedigree charts, a single horizontal line indicates standard mating, while two horizontal lines between a male (square) and female (circle) indicate consanguineous mating (mating between close relatives).", "num": 52}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "KCET 2015", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2015 Biology Paper", "stem": "Which of the following is a classic example of polygenic inheritance in humans?", "extras": [], "options": [{"marker": "A", "text": "ABO blood groups"}, {"marker": "B", "text": "Human height and skin colour"}, {"marker": "C", "text": "Phenylketonuria"}, {"marker": "D", "text": "Colour blindness"}], "answerIndex": 1, "explanation": "Human height and skin colour are continuous traits controlled by three or more genes with cumulative additive effects, influenced also by the environment (polygenic traits).", "num": 53}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2014", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2014 Biology Paper", "stem": "The graphical representation developed by a British geneticist to calculate the probability of all possible genotypes of offspring in a genetic cross is called:", "extras": [], "options": [{"marker": "A", "text": "Sutton Square"}, {"marker": "B", "text": "Punnett Square"}, {"marker": "C", "text": "Boveri Matrix"}, {"marker": "D", "text": "Morgan Diagram"}], "answerIndex": 1, "explanation": "The Punnett Square was developed by British geneticist Reginald C. Punnett to visually compute the probabilities of all genotypes in a genetic cross.", "num": 54}, {"topic": "Incomplete Dominance & Co-dominance", "tag": "KCET 2024", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2024 Biology Paper", "stem": "A cross between red flowered (RR) and white flowered (rr) Mirabilis jalapa or Antirrhinum majus gives pink F1 (Rr). What is the genotypic ratio in F2?", "extras": [], "options": [{"marker": "A", "text": "3 : 1"}, {"marker": "B", "text": "1 : 2 : 1"}, {"marker": "C", "text": "9 : 3 : 3 : 1"}, {"marker": "D", "text": "2 : 1 : 1"}], "answerIndex": 1, "explanation": "The genotypic ratio in F2 is 1 RR : 2 Rr : 1 rr (1:2:1), which in incomplete dominance is identical to the phenotypic ratio (1 red : 2 pink : 1 white).", "num": 55}, {"topic": "Mendelian Disorders", "tag": "KCET 2023", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2023 Biology Paper", "stem": "Which of the following is NOT an autosome-linked Mendelian disorder?", "extras": [], "options": [{"marker": "A", "text": "Sickle cell anaemia"}, {"marker": "B", "text": "Phenylketonuria"}, {"marker": "C", "text": "Thalassemia"}, {"marker": "D", "text": "Haemophilia"}], "answerIndex": 3, "explanation": "Haemophilia is an X-linked (sex-linked) recessive disorder. Sickle cell anaemia (chr 11), phenylketonuria (chr 12), and thalassemia (chr 16 and 11) are all autosomal disorders.", "num": 56}, {"topic": "Sex Determination", "tag": "KCET 2022", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2022 Biology Paper", "stem": "In humans, why is the sperm responsible for determining the sex of the unborn child?", "extras": [], "options": [{"marker": "A", "text": "Sperms carry either X or Y chromosome while all ova carry X chromosome"}, {"marker": "B", "text": "Ova carry either X or Y chromosome"}, {"marker": "C", "text": "Females are heterogametic"}, {"marker": "D", "text": "Y chromosome is inherited from the mother"}], "answerIndex": 0, "explanation": "Human males produce two types of sperms (50% with X and 50% with Y chromosome, male heterogamety), while females produce only X-bearing eggs. Fertilization by an X-sperm gives female (XX), and by a Y-sperm gives male (XY).", "num": 57}, {"topic": "Mendelian Genetics & Test Cross", "tag": "KCET 2021", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2021 Biology Paper", "stem": "When Gregor Mendel conducted hybridisation experiments on garden peas, over what time period did his experiments take place?", "extras": [], "options": [{"marker": "A", "text": "1840\u20131847"}, {"marker": "B", "text": "1856\u20131863"}, {"marker": "C", "text": "1865\u20131872"}, {"marker": "D", "text": "1900\u20131907"}], "answerIndex": 1, "explanation": "Gregor Mendel conducted hybridisation experiments on garden peas for seven years, between 1856 and 1863, and proposed the laws of inheritance.", "num": 58}, {"topic": "Co-dominance & Multiple Alleles", "tag": "KCET 2020", "sourceUrl": "https://cetonline.karnataka.gov.in/kea/", "sourceLabel": "KCET 2020 Biology Paper", "stem": "The sugar polymers that protrude from the surface of human red blood cells and determine ABO blood groups are controlled by which gene?", "extras": [], "options": [{"marker": "A", "text": "Gene H"}, {"marker": "B", "text": "Gene I"}, {"marker": "C", "text": "Gene Rh"}, {"marker": "D", "text": "Gene O"}], "answerIndex": 1, "explanation": "ABO blood groups are determined by the gene I (isoagglutinogen), which has three allelic forms: I^A, I^B, and i.", "num": 59}];
+    const NEET_DATA = [{"topic": "Chromosomal Disorders & Aneuploidy", "tag": "Re-NEET 2026", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) Re-Examination Question Paper (Code 50)", "stem": "Given below are two statements:\nStatement I: Down's syndrome is caused by the absence of one of the X-chromosomes.\nStatement II: Turner's syndrome is caused by the presence of an additional copy of the chromosomes.\nIn the light of the above statements, choose the correct answer from the options given below:", "extras": [], "options": [{"marker": "A", "text": "Both Statement I and Statement II are correct"}, {"marker": "B", "text": "Both Statement I and Statement II are incorrect"}, {"marker": "C", "text": "Statement I is correct but Statement II is incorrect"}, {"marker": "D", "text": "Statement I is incorrect but Statement II is correct"}], "answerIndex": 1, "explanation": "Both statements are incorrect. Down's syndrome is an autosomal aneuploidy caused by an extra copy of chromosome 21 (trisomy 21, 47 chromosomes). Turner's syndrome is caused by the absence/monosomy of an X chromosome in females (45, XO).", "num": 1}, {"topic": "Co-dominance & Multiple Alleles", "tag": "Re-NEET 2026", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) Re-Examination Question Paper (Code 50)", "stem": "For a person with blood group 'O', which of the following is NOT a possible combination of parents' blood group genotypes?", "extras": [], "options": [{"marker": "A", "text": "Father : I^A i and Mother : I^B i"}, {"marker": "B", "text": "Father : I^A i and Mother : I^A i"}, {"marker": "C", "text": "Father : I^B i and Mother : I^B i"}, {"marker": "D", "text": "Father : I^A I^B and Mother : I^A i"}], "answerIndex": 3, "explanation": "A person with blood group O has genotype ii and must receive one recessive 'i' allele from each biological parent. A parent with genotype I^A I^B has no 'i' allele to pass on; therefore, this couple can never produce an offspring with blood group O.", "num": 2}, {"topic": "Mendelian Genetics & Test Cross", "tag": "Re-NEET 2026", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) Re-Examination Question Paper (Code 50)", "stem": "Given below are two statements: one is labelled as Assertion A and the other is labelled as Reason R.\nAssertion A: In an experiment, Mendel observed that the F1 progeny plants are all tall and none are dwarf.\nReason R: Stem height is a contrasting trait, with tall being dominant and dwarf being recessive.\nIn the light of the above statements, choose the most appropriate answer from the options given below:", "extras": [], "options": [{"marker": "A", "text": "Both A and R are correct and R is the correct explanation of A"}, {"marker": "B", "text": "Both A and R are correct but R is not the correct explanation of A"}, {"marker": "C", "text": "A is correct but R is not correct"}, {"marker": "D", "text": "A is not correct but R is correct"}], "answerIndex": 0, "explanation": "In a cross between pure tall (TT) and dwarf (tt) plants, all F1 hybrids have genotype Tt. Because the allele for tallness (T) is completely dominant over dwarfness (t), only the dominant tall phenotype is expressed in the F1 generation.", "num": 3}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "NEET 2025", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET 2025 Biology Question Paper (Code Narmada 48)", "stem": "What is the pattern of inheritance for a polygenic trait?", "extras": [], "options": [{"marker": "A", "text": "Autosomal dominant pattern"}, {"marker": "B", "text": "X-linked recessive inheritance pattern"}, {"marker": "C", "text": "Mendelian inheritance pattern"}, {"marker": "D", "text": "Non-Mendelian inheritance pattern"}], "answerIndex": 3, "explanation": "Polygenic inheritance (e.g., human height, skin colour) is controlled by three or more genes with cumulative additive effects, displaying a continuous phenotypic gradient rather than distinct Mendelian ratios; hence, it is a Non-Mendelian inheritance pattern.", "num": 4}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2025", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET 2025 Biology Question Paper (Code Narmada 48)", "stem": "Genes R and Y follow independent assortment. If RRYY produces round yellow seeds and rryy produces wrinkled green seeds, what will be the phenotypic ratio of the F2 generation?", "extras": [], "options": [{"marker": "A", "text": "Phenotypic ratio - 9 : 3 : 3 : 1"}, {"marker": "B", "text": "Phenotypic ratio - 9 : 7"}, {"marker": "C", "text": "Phenotypic ratio - 1 : 2 : 1"}, {"marker": "D", "text": "Phenotypic ratio - 3 : 1"}], "answerIndex": 0, "explanation": "In Mendel's dihybrid cross with two independently assorting gene pairs (R/r for seed shape and Y/y for seed colour), the F2 phenotypic ratio is 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green (9:3:3:1).", "num": 5}, {"topic": "Pedigree Analysis & Inheritance", "tag": "NEET 2025", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET 2025 Biology Question Paper (Code Narmada 48)", "stem": "In an autosomal recessive condition, both parents in F1 are unaffected carriers (heterozygous Aa). What is the probability that their phenotypically normal child in the F2 generation is a carrier?", "extras": [], "options": [{"marker": "A", "text": "1/4"}, {"marker": "B", "text": "1/2"}, {"marker": "C", "text": "2/3"}, {"marker": "D", "text": "3/4"}], "answerIndex": 2, "explanation": "Among the offspring of Aa x Aa, genotypes are 1 AA : 2 Aa : 1 aa. If the child is known to be phenotypically normal (excluding aa), the possible genotypes are AA (1/3) and Aa (2/3). Thus, the probability of being a carrier is 2/3.", "num": 6}, {"topic": "Genetic Disorders & Mutations", "tag": "NEET 2024", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2024 Question Paper (Code 12 Kailash)", "stem": "Which one of the following disorders is caused by the substitution of Glutamic acid (Glu) by Valine (Val) at the sixth position of the beta globin chain of the haemoglobin molecule?", "extras": [], "options": [{"marker": "A", "text": "Haemophilia"}, {"marker": "B", "text": "Thalassemia"}, {"marker": "C", "text": "Sickle-cell anaemia"}, {"marker": "D", "text": "Phenylketonuria"}], "answerIndex": 2, "explanation": "Sickle-cell anaemia is an autosome-linked recessive trait caused by the substitution of glutamic acid by valine at the sixth position of the beta-globin chain due to a point mutation (single base substitution GAG to GUG).", "num": 7}, {"topic": "Inheritance Patterns Comparison", "tag": "NEET 2024", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2024 Question Paper (Code 12 Kailash)", "stem": "Match List I with List II:\n\nList I (Inheritance Pattern):\nA. Incomplete dominance\nB. Co-dominance\nC. Pleiotropy\nD. Polygenic inheritance\n\nList II (Example):\nI. Human skin colour\nII. Inheritance of flower colour in Antirrhinum sp.\nIII. Phenylketonuria disease in humans\nIV. ABO blood groups in humans\n\nChoose the correct answer from the options given below:", "extras": [{"type": "table", "title": "Match List I with List II", "headers": ["List I (Inheritance Pattern)", "List II (Example)"], "rows": [["A. Incomplete dominance", "II. Inheritance of flower colour in Antirrhinum sp."], ["B. Co-dominance", "IV. ABO blood groups in humans"], ["C. Pleiotropy", "III. Phenylketonuria disease in humans"], ["D. Polygenic inheritance", "I. Human skin colour"]]}], "options": [{"marker": "A", "text": "A-II, B-IV, C-III, D-I"}, {"marker": "B", "text": "A-I, B-III, C-II, D-IV"}, {"marker": "C", "text": "A-II, B-I, C-III, D-IV"}, {"marker": "D", "text": "A-I, B-IV, C-III, D-II"}], "answerIndex": 0, "explanation": "Incomplete dominance is exemplified by snapdragon (Antirrhinum) flower colour (A-II); Co-dominance is shown by human ABO blood group alleles I^A and I^B (B-IV); Pleiotropy is seen in phenylketonuria where one gene affects multiple phenotypic traits (C-III); Polygenic inheritance is exemplified by human skin colour (D-I).", "num": 8}, {"topic": "Sex Determination", "tag": "NEET 2024", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2024 Question Paper (Code 12 Kailash)", "stem": "Which of the following statements are true with reference to the sex-determination in honeybees?\nA. An offspring formed from the union of a sperm and an egg, develops as a female (queen or worker).\nB. An unfertilized egg develops as a male by parthenogenesis.\nC. A male has half the number of chromosomes than that of a female.\nD. Males produce sperms by meiosis.\nE. Honeybees have a haplodiploid sex-determination system.\n\nChoose the correct answer from the options given below:", "extras": [], "options": [{"marker": "A", "text": "B, C, D and E only"}, {"marker": "B", "text": "A, B, C and D only"}, {"marker": "C", "text": "A, B, D and E only"}, {"marker": "D", "text": "A, B, C and E only"}], "answerIndex": 3, "explanation": "Statements A, B, C, and E are correct. Statement D is false because drone (male) honeybees are already haploid (n = 16) and produce sperms by mitosis, not meiosis.", "num": 9}, {"topic": "Sex Determination", "tag": "NTA Biology 304 E", "sourceUrl": "https://nta.ac.in/", "sourceLabel": "NTA Biology National Examination (Code 304 E)", "stem": "Sex in a human embryo is determined by:", "extras": [], "options": [{"marker": "A", "text": "'X' chromosome of egg"}, {"marker": "B", "text": "'X' or 'Y' chromosome of sperm"}, {"marker": "C", "text": "Only 'Y' chromosome of sperm"}, {"marker": "D", "text": "Health of mother"}], "answerIndex": 1, "explanation": "Human females produce all ova carrying an X chromosome (homogametic). Human males produce two types of sperms: 50% carrying X and 50% carrying Y. Therefore, the sex of the embryo is determined by whether an X-bearing or Y-bearing sperm fertilizes the egg.", "num": 10}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NTA Biology 304 E", "sourceUrl": "https://nta.ac.in/", "sourceLabel": "NTA Biology National Examination (Code 304 E)", "stem": "Which of the following pairs of contrasting traits was NOT studied by Mendel in garden pea?", "extras": [], "options": [{"marker": "A", "text": "Pink and white flowers"}, {"marker": "B", "text": "Inflated and constricted pods"}, {"marker": "C", "text": "Axial and terminal flowers"}, {"marker": "D", "text": "Green and yellow pods"}], "answerIndex": 0, "explanation": "Mendel studied violet and white flower colours in garden pea (along with stem height, seed shape, seed colour, pod shape, pod colour, and flower position). Pink and white flower colour was studied later in snapdragon (Antirrhinum) by Correns.", "num": 11}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "NTA Biology 304 E", "sourceUrl": "https://nta.ac.in/", "sourceLabel": "NTA Biology National Examination (Code 304 E)", "stem": "Failure of chromatids to segregate during cell division cycle results in:", "extras": [], "options": [{"marker": "A", "text": "Polyploidy"}, {"marker": "B", "text": "Euploidy"}, {"marker": "C", "text": "Aneuploidy"}, {"marker": "D", "text": "Autopolyploidy"}], "answerIndex": 2, "explanation": "Failure of segregation of chromatids during anaphase leads to non-disjunction and produces gametes with an extra or missing chromosome, causing aneuploidy (e.g., trisomy or monosomy).", "num": 12}, {"topic": "Genetic Disorders & Mutations", "tag": "NTA Biology 304 E", "sourceUrl": "https://nta.ac.in/", "sourceLabel": "NTA Biology National Examination (Code 304 E)", "stem": "Select the correctly matched pair about sickle cell anaemia:\nGenotype : Phenotype\n(A) Hb^A Hb^A : Diseased phenotype\n(B) Hb^A Hb^S : Diseased phenotype\n(C) Hb^S Hb^S : Diseased phenotype\n(D) Hb^S Hb^A : Carrier of disease\n\nChoose the correct answer from the options given below:", "extras": [], "options": [{"marker": "A", "text": "(C) and (D) only"}, {"marker": "B", "text": "(A) and (C) only"}, {"marker": "C", "text": "(B), (C) and (D) only"}, {"marker": "D", "text": "(A), (B), and (C) only"}], "answerIndex": 0, "explanation": "Sickle cell anaemia is an autosomal recessive disorder: Hb^A Hb^A is normal, Hb^A Hb^S (or Hb^S Hb^A) is an unaffected carrier displaying sickle cell trait, and homozygous Hb^S Hb^S exhibits the diseased phenotype. Thus, (C) and (D) are correctly matched.", "num": 13}, {"topic": "Chromosomal Theory of Inheritance", "tag": "NTA Biology 304 E", "sourceUrl": "https://nta.ac.in/", "sourceLabel": "NTA Biology National Examination (Code 304 E)", "stem": "Match List-I with List-II:\n\nList-I (Scientists):\nA. Sutton and Boveri\nB. Sturtevant\nC. Henking\nD. Griffith\n\nList-II (Discovery):\nI. X-Body\nII. Chromosomal Theory of Inheritance\nIII. Transformation in bacteria\nIV. Genetic maps\n\nChoose the correct answer from the options given below:", "extras": [{"type": "table", "title": "Match List-I with List-II", "headers": ["List-I (Scientists)", "List-II (Discovery)"], "rows": [["A. Sutton and Boveri", "II. Chromosomal Theory of Inheritance"], ["B. Sturtevant", "IV. Genetic maps"], ["C. Henking", "I. X-Body"], ["D. Griffith", "III. Transformation in bacteria"]]}], "options": [{"marker": "A", "text": "A-II, B-IV, C-I, D-III"}, {"marker": "B", "text": "A-II, B-I, C-IV, D-III"}, {"marker": "C", "text": "A-I, B-III, C-II, D-IV"}, {"marker": "D", "text": "A-IV, B-I, C-III, D-II"}], "answerIndex": 0, "explanation": "Sutton and Boveri proposed the Chromosomal Theory of Inheritance (A-II); Alfred Sturtevant constructed the first genetic map (B-IV); Henking discovered the X-body in insects (C-I); Griffith discovered bacterial transformation (D-III).", "num": 14}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "NEET 2023", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2023 Question Paper", "stem": "Broad palm with single palm crease, furrowed tongue and short stature are characteristic symptoms of:", "extras": [], "options": [{"marker": "A", "text": "Down's syndrome"}, {"marker": "B", "text": "Turner's syndrome"}, {"marker": "C", "text": "Klinefelter's syndrome"}, {"marker": "D", "text": "Thalassemia"}], "answerIndex": 0, "explanation": "Down's syndrome (trisomy 21) causes short stature, small round head, furrowed tongue, partially open mouth, and broad palm with a distinct palm crease (simian crease).", "num": 15}, {"topic": "Linkage & Recombination", "tag": "NEET 2023", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2023 Question Paper", "stem": "The distance between the genes and percentage of recombination shows:", "extras": [], "options": [{"marker": "A", "text": "A direct relationship"}, {"marker": "B", "text": "An inverse relationship"}, {"marker": "C", "text": "A parallel relationship with no change"}, {"marker": "D", "text": "No relationship"}], "answerIndex": 0, "explanation": "As established by Alfred Sturtevant, recombination frequency is directly proportional to the physical distance between two linked genes on a chromosome: greater distance allows more crossing over.", "num": 16}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2022", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2022 Question Paper", "stem": "What is the recombination percentage between the genes for white eye and miniature wing in Drosophila melanogaster according to T.H. Morgan's experiments?", "extras": [], "options": [{"marker": "A", "text": "1.3%"}, {"marker": "B", "text": "37.2%"}, {"marker": "C", "text": "62.8%"}, {"marker": "D", "text": "98.7%"}], "answerIndex": 1, "explanation": "In Morgan's Cross B on Drosophila, genes for white eye (w) and miniature wing (m) are loosely linked on the X chromosome and showed 37.2% recombination (62.8% parental types).", "num": 17}, {"topic": "Co-dominance & Multiple Alleles", "tag": "NEET 2022", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2022 Question Paper", "stem": "If a man with blood group A (genotype I^A i) marries a woman with blood group B (genotype I^B i), what are the possible blood groups of their offspring?", "extras": [], "options": [{"marker": "A", "text": "Only AB"}, {"marker": "B", "text": "A, B and AB only"}, {"marker": "C", "text": "A, B, AB and O"}, {"marker": "D", "text": "Only O"}], "answerIndex": 2, "explanation": "Cross I^A i x I^B i yields: I^A I^B (Blood Group AB), I^A i (Blood Group A), I^B i (Blood Group B), and ii (Blood Group O) in a 1:1:1:1 ratio. All four ABO blood groups are possible.", "num": 18}, {"topic": "Chromosomal Theory of Inheritance", "tag": "NEET 2021", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2021 Question Paper", "stem": "Experimental verification of the chromosomal theory of inheritance was done by:", "extras": [], "options": [{"marker": "A", "text": "Mendel"}, {"marker": "B", "text": "Sutton"}, {"marker": "C", "text": "Boveri"}, {"marker": "D", "text": "Morgan"}], "answerIndex": 3, "explanation": "Experimental verification of the chromosomal theory of inheritance was carried out by Thomas Hunt Morgan and his colleagues using Drosophila melanogaster.", "num": 19}, {"topic": "Genetic Disorders & Mutations", "tag": "NEET 2021", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2021 Question Paper", "stem": "Select the incorrect statement regarding pedigree analysis:", "extras": [], "options": [{"marker": "A", "text": "Solid symbols show unaffected individuals"}, {"marker": "B", "text": "It is useful for genetic counseling"}, {"marker": "C", "text": "Square represents male and circle represents female"}, {"marker": "D", "text": "It represents inheritance of a trait across generations"}], "answerIndex": 0, "explanation": "In standard pedigree charts, open (unfilled) symbols represent unaffected individuals, while solid (shaded/filled) symbols represent affected individuals.", "num": 20}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "NEET 2020", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2020 Question Paper", "stem": "Which of the following chromosomal disorders is caused by monosomy of an X chromosome resulting in 45 chromosomes?", "extras": [], "options": [{"marker": "A", "text": "Klinefelter's syndrome"}, {"marker": "B", "text": "Turner's syndrome"}, {"marker": "C", "text": "Down's syndrome"}, {"marker": "D", "text": "Cri-du-chat syndrome"}], "answerIndex": 1, "explanation": "Turner's syndrome results from monosomy of the sex chromosome (45, XO). Such females have short stature, webbed neck, and rudimentary ovaries.", "num": 21}, {"topic": "Mendelian Disorders", "tag": "NEET 2020", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2020 Question Paper", "stem": "In humans, thalassemia is an autosome-linked recessive blood disorder. Alpha-thalassemia is controlled by genes HBA1 and HBA2 located on:", "extras": [], "options": [{"marker": "A", "text": "Chromosome 11"}, {"marker": "B", "text": "Chromosome 16"}, {"marker": "C", "text": "Chromosome 21"}, {"marker": "D", "text": "Chromosome X"}], "answerIndex": 1, "explanation": "Alpha-thalassemia is controlled by two closely linked genes, HBA1 and HBA2, on chromosome 16. Beta-thalassemia is controlled by gene HBB on chromosome 11.", "num": 22}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2019", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2019 Question Paper", "stem": "What map unit (Centimorgan) is adopted in the construction of genetic maps?", "extras": [], "options": [{"marker": "A", "text": "A unit of distance between genes on chromosomes, representing 50% cross over"}, {"marker": "B", "text": "A unit of distance between two expressed genes, representing 10% cross over"}, {"marker": "C", "text": "A unit of distance between genes on chromosomes, representing 1% cross over"}, {"marker": "D", "text": "A unit of distance between genes on chromosomes, representing 100% cross over"}], "answerIndex": 2, "explanation": "One map unit (or centimorgan, cM) is defined as the distance between genes along an organic chromosome that gives a 1% recombination frequency (1% crossing over).", "num": 23}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2019", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2019 Question Paper", "stem": "A cross in which an organism showing a dominant phenotype is crossed with the recessive parent in order to determine its genotype is called:", "extras": [], "options": [{"marker": "A", "text": "Back cross"}, {"marker": "B", "text": "Test cross"}, {"marker": "C", "text": "Dihybrid cross"}, {"marker": "D", "text": "Monohybrid cross"}], "answerIndex": 1, "explanation": "A test cross involves crossing an individual with an unknown dominant genotype (TT or Tt) with a homozygous recessive individual (tt).", "num": 24}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "NEET 2018", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2018 Question Paper", "stem": "Starch synthesis gene in pea seeds shows:", "extras": [], "options": [{"marker": "A", "text": "Complete dominance for seed shape and incomplete dominance for starch grain size"}, {"marker": "B", "text": "Incomplete dominance for seed shape and complete dominance for starch grain size"}, {"marker": "C", "text": "Co-dominance for both seed shape and starch grain size"}, {"marker": "D", "text": "Incomplete dominance for both traits"}], "answerIndex": 0, "explanation": "In pea seeds, allele B is completely dominant over b for seed shape (both BB and Bb are round). However, for starch grain size, Bb heterozygotes produce intermediate-sized grains, demonstrating incomplete dominance.", "num": 25}, {"topic": "Sex-Linked Inheritance", "tag": "NEET 2018", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2018 Question Paper", "stem": "A woman has an X-linked condition on one of her X chromosomes. This chromosome can be inherited by:", "extras": [], "options": [{"marker": "A", "text": "Only daughters"}, {"marker": "B", "text": "Only sons"}, {"marker": "C", "text": "Only grandchildren"}, {"marker": "D", "text": "Both sons and daughters"}], "answerIndex": 3, "explanation": "A mother passes one of her two X chromosomes to each of her children, whether male or female. Thus, an X-linked allele can be inherited by both sons and daughters with equal 50% probability.", "num": 26}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "NEET 2017", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2017 Question Paper", "stem": "Thalassemia and sickle cell anaemia are caused due to a problem in globin molecule synthesis. Select the correct statement:", "extras": [], "options": [{"marker": "A", "text": "Both are due to a quantitative defect in globin chain synthesis"}, {"marker": "B", "text": "Thalassemia is due to less synthesis of globin molecules"}, {"marker": "C", "text": "Sickle cell anaemia is due to a quantitative problem of globin molecules"}, {"marker": "D", "text": "Both are due to a qualitative defect in globin chain synthesis"}], "answerIndex": 1, "explanation": "Thalassemia is a quantitative disorder characterized by reduced synthesis of one of the globin chains, whereas sickle-cell anaemia is a qualitative defect characterized by abnormal beta-chain synthesis.", "num": 27}, {"topic": "Sex Determination", "tag": "NEET 2017", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2017 Question Paper", "stem": "Which of the following pairs is wrongly matched?", "extras": [], "options": [{"marker": "A", "text": "Grasshopper - XO type of sex determination"}, {"marker": "B", "text": "Human - XY type of sex determination"}, {"marker": "C", "text": "Birds - ZW type of sex determination"}, {"marker": "D", "text": "Drosophila - XO type of sex determination"}], "answerIndex": 3, "explanation": "Drosophila melanogaster exhibits the XY type of sex determination (females are XX and males are XY), exactly like humans. XO sex determination is found in insects like grasshoppers.", "num": 28}, {"topic": "Chromosomal Theory of Inheritance", "tag": "NEET 2016", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2016 Question Paper Phase I", "stem": "The mechanism that causes a gene to move from one linkage group to another is:", "extras": [], "options": [{"marker": "A", "text": "Inversion"}, {"marker": "B", "text": "Duplication"}, {"marker": "C", "text": "Translocation"}, {"marker": "D", "text": "Crossing-over"}], "answerIndex": 2, "explanation": "Translocation is the chromosomal aberration in which a segment of a chromosome breaks off and joins a non-homologous chromosome, thereby shifting a gene into a different linkage group.", "num": 29}, {"topic": "Mendelian Disorders", "tag": "NEET 2016", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2016 Question Paper Phase II", "stem": "If a colourblind man marries a woman who is homozygous for normal colour vision, the probability of their son being colourblind is:", "extras": [], "options": [{"marker": "A", "text": "0"}, {"marker": "B", "text": "0.5"}, {"marker": "C", "text": "0.75"}, {"marker": "D", "text": "1"}], "answerIndex": 0, "explanation": "Colourblind father (X^c Y) passes his Y chromosome to all his sons. The homozygous normal mother (X^C X^C) passes normal X^C to all sons. Hence, 100% of the sons are X^C Y (normal vision), giving a probability of 0.", "num": 30}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "NEET 2015", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2015 Re-Exam", "stem": "A gene showing co-dominance has:", "extras": [], "options": [{"marker": "A", "text": "Alleles that are recessive to each other"}, {"marker": "B", "text": "Both alleles independently expressed in the heterozygote"}, {"marker": "C", "text": "One allele dominant on the other"}, {"marker": "D", "text": "Alleles tightly linked on the same chromosome"}], "answerIndex": 1, "explanation": "Co-dominance occurs when both alleles of a gene pair in a heterozygote express themselves equally and independently in the phenotype (e.g., I^A and I^B producing AB blood group).", "num": 31}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2015", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2015 Re-Exam", "stem": "In his classic experiments on pea plants, Mendel did not use:", "extras": [], "options": [{"marker": "A", "text": "Seed shape"}, {"marker": "B", "text": "Flower position"}, {"marker": "C", "text": "Pod length"}, {"marker": "D", "text": "Seed colour"}], "answerIndex": 2, "explanation": "Mendel studied pod shape (inflated vs constricted) and pod colour (green vs yellow), but did NOT study pod length.", "num": 32}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2014", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2014 Question Paper", "stem": "A human female with Turner's syndrome:", "extras": [], "options": [{"marker": "A", "text": "Has 45 chromosomes with XO"}, {"marker": "B", "text": "Has one additional X chromosome"}, {"marker": "C", "text": "Exhibits male characters"}, {"marker": "D", "text": "Is able to produce children with normal husband"}], "answerIndex": 0, "explanation": "Turner's syndrome females have 45 chromosomes (44 autosomes + XO). They are sterile due to rudimentary ovaries and lack secondary sexual characteristics.", "num": 33}, {"topic": "Linkage & Recombination", "tag": "AIPMT 2012", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2012 Prelims", "stem": "When two unrelated genes are located on two different non-homologous chromosomes, they assort independently during:", "extras": [], "options": [{"marker": "A", "text": "Metaphase I"}, {"marker": "B", "text": "Anaphase I"}, {"marker": "C", "text": "Anaphase II"}, {"marker": "D", "text": "Prophase I"}], "answerIndex": 1, "explanation": "Independent assortment of bivalents occurs during Metaphase I / Anaphase I of meiosis, where non-homologous chromosomes separate and move independently to opposite poles.", "num": 34}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2011", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2011 Prelims", "stem": "Which of the following test crosses represents a test cross of a dihybrid?", "extras": [], "options": [{"marker": "A", "text": "TtYy x ttyy"}, {"marker": "B", "text": "TtYy x TtYy"}, {"marker": "C", "text": "TTYY x ttyy"}, {"marker": "D", "text": "ttyy x ttyy"}], "answerIndex": 0, "explanation": "A dihybrid test cross is performed by crossing the heterozygous dihybrid (TtYy) with the double homozygous recessive parent (ttyy).", "num": 35}, {"topic": "Incomplete Dominance & Co-dominance", "tag": "AIPMT 2010", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2010 Prelims", "stem": "ABO blood groups in humans are controlled by the gene I. It has three alleles - I^A, I^B and i. Since there are three different alleles, six different genotypes are possible. How many phenotypes can occur?", "extras": [], "options": [{"marker": "A", "text": "Three"}, {"marker": "B", "text": "One"}, {"marker": "C", "text": "Four"}, {"marker": "D", "text": "Two"}], "answerIndex": 2, "explanation": "The six genotypes produce 4 distinct phenotypes: Type A (I^A I^A, I^A i), Type B (I^B I^B, I^B i), Type AB (I^A I^B), and Type O (ii).", "num": 36}, {"topic": "Sex Determination", "tag": "AIPMT 2009", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2009 Prelims", "stem": "Which of the following is an example of male heterogamety?", "extras": [], "options": [{"marker": "A", "text": "Birds"}, {"marker": "B", "text": "Grasshopper and Human"}, {"marker": "C", "text": "Butterflies"}, {"marker": "D", "text": "Silk moth"}], "answerIndex": 1, "explanation": "In both grasshoppers (XO) and humans (XY), males produce two different types of gametes (either with or without X, or X vs Y), representing male heterogamety. Birds and butterflies exhibit female heterogamety (ZW).", "num": 37}, {"topic": "Mendelian Disorders", "tag": "AIPMT 2008", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2008", "stem": "Sickle cell anaemia induces which morphological change in erythrocytes?", "extras": [], "options": [{"marker": "A", "text": "Change from biconcave disc to elongated sickle-like shape"}, {"marker": "B", "text": "Swelling into large spherical cells"}, {"marker": "C", "text": "Loss of cell membrane and lysis"}, {"marker": "D", "text": "Fragmentation into platelets"}], "answerIndex": 0, "explanation": "Under low oxygen tension, mutant HbS polymerises into long fibers, distorting the normal flexible biconcave erythrocyte into a rigid, elongated sickle-like shape that clogs microcapillaries.", "num": 38}, {"topic": "Chromosomal Theory of Inheritance", "tag": "AIPMT 2007", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2007", "stem": "Two genes located very close on the same chromosome will:", "extras": [], "options": [{"marker": "A", "text": "Show high crossing over frequency"}, {"marker": "B", "text": "Hardly show any independent assortment"}, {"marker": "C", "text": "Assort completely independently"}, {"marker": "D", "text": "Segregate during mitosis"}], "answerIndex": 1, "explanation": "Genes that are in close physical proximity on the same chromosome are linked and do not assort independently, violating Mendel's Law of Independent Assortment.", "num": 39}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2006", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2006", "stem": "In a monohybrid cross between pure tall and dwarf pea plants, what fraction of the tall plants in the F2 generation is heterozygous?", "extras": [], "options": [{"marker": "A", "text": "1/4"}, {"marker": "B", "text": "1/2"}, {"marker": "C", "text": "2/3"}, {"marker": "D", "text": "3/4"}], "answerIndex": 2, "explanation": "In F2, the tall plants consist of 1 TT and 2 Tt (total 3 tall plants). Among these tall plants, 2 out of 3 (2/3 or 66.7%) are heterozygous (Tt).", "num": 40}, {"topic": "Mendelian Disorders", "tag": "AIPMT 2005", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2005", "stem": "Haemophilia is more common in males because it is a:", "extras": [], "options": [{"marker": "A", "text": "Recessive character carried by Y-chromosome"}, {"marker": "B", "text": "Dominant character carried by Y-chromosome"}, {"marker": "C", "text": "Recessive trait carried by X-chromosome"}, {"marker": "D", "text": "Dominant trait carried by X-chromosome"}], "answerIndex": 2, "explanation": "Haemophilia is an X-linked recessive disorder. Since human males have only one X chromosome (hemizygous), a single defective allele is sufficient to express the disease.", "num": 41}, {"topic": "Co-dominance & Multiple Alleles", "tag": "AIPMT 2004", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2004", "stem": "A person with blood group AB has:", "extras": [], "options": [{"marker": "A", "text": "Both A and B antigens on RBCs and no antibodies in plasma"}, {"marker": "B", "text": "No antigens on RBCs and both anti-A and anti-B antibodies"}, {"marker": "C", "text": "Antigen A and anti-B antibody"}, {"marker": "D", "text": "Antigen B and anti-A antibody"}], "answerIndex": 0, "explanation": "Individuals with AB blood group possess both antigen A and antigen B on the RBC membrane surface and produce neither anti-A nor anti-B antibodies in their blood plasma, making them universal recipients.", "num": 42}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2003", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2003", "stem": "Which of Mendel's laws can be explained without exception by monohybrid crosses?", "extras": [], "options": [{"marker": "A", "text": "Law of Dominance"}, {"marker": "B", "text": "Law of Segregation"}, {"marker": "C", "text": "Law of Independent Assortment"}, {"marker": "D", "text": "Law of Purity of Gametes and Dominance"}], "answerIndex": 1, "explanation": "The Law of Segregation (also called the Law of Purity of Gametes) has no biological exceptions in diploid organisms, because alleles always segregate during meiosis into separate gametes without blending.", "num": 43}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "AIPMT 2002", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2002", "stem": "Phenylketonuria in humans manifests with which of the following clinical symptoms?", "extras": [], "options": [{"marker": "A", "text": "Mental retardation and reduction in hair and skin pigmentation"}, {"marker": "B", "text": "Excessive blood loss and joint swelling"}, {"marker": "C", "text": "Gynaecomastia and tall stature"}, {"marker": "D", "text": "Rudimentary ovaries and webbed neck"}], "answerIndex": 0, "explanation": "Phenylketonuria is a pleiotropic autosomal recessive disease where accumulation of phenylalanine and phenylpyruvic acid leads to severe mental retardation, as well as hypopigmentation of hair and skin.", "num": 44}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2001", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2001", "stem": "How many types of genetically different gametes will be produced by a heterozygous plant with genotype AABbCc?", "extras": [], "options": [{"marker": "A", "text": "2"}, {"marker": "B", "text": "4"}, {"marker": "C", "text": "8"}, {"marker": "D", "text": "16"}], "answerIndex": 1, "explanation": "Types of gametes = 2^n, where n is the number of heterozygous gene pairs. Here, only Bb and Cc are heterozygous (n = 2), while AA is homozygous. Thus, 2^2 = 4 different gametic types (ABC, ABc, AbC, Abc) are produced.", "num": 45}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2000", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2000", "stem": "When a hybrid tall pea plant (Tt) is crossed with a dwarf pea plant (tt), what percentage of the progeny will be tall?", "extras": [], "options": [{"marker": "A", "text": "25%"}, {"marker": "B", "text": "50%"}, {"marker": "C", "text": "75%"}, {"marker": "D", "text": "100%"}], "answerIndex": 1, "explanation": "In a test cross Tt x tt, the progeny genotypes are 1 Tt (tall) : 1 tt (dwarf). Therefore, 50% (1/2) of the offspring are tall.", "num": 46}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2024", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2024 Question Paper", "stem": "In garden pea, which pair of contrasting traits shows dominant expression in the F1 generation of a monohybrid cross?", "options": [{"marker": "A", "text": "Constricted pod and yellow pod"}, {"marker": "B", "text": "Terminal flower and wrinkled seed"}, {"marker": "C", "text": "Violet flower and inflated pod"}, {"marker": "D", "text": "Green seed and white flower"}], "answerIndex": 2, "explanation": "Violet flower colour is dominant over white, and inflated (full) pod shape is dominant over constricted pod shape.", "extras": [], "num": 47}, {"topic": "Co-dominance & Multiple Alleles", "tag": "NEET 2023", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2023 Question Paper", "stem": "Which of the following statements about alleles I^A, I^B and i is FALSE?", "options": [{"marker": "A", "text": "Alleles I^A and I^B produce different types of sugar polymers on RBC membrane"}, {"marker": "B", "text": "Allele i does not produce any sugar polymer"}, {"marker": "C", "text": "When I^A and I^B are present together, only I^A expresses its sugar"}, {"marker": "D", "text": "Each diploid human individual possesses only two alleles of gene I"}], "answerIndex": 2, "explanation": "When I^A and I^B are present together, both express their respective sugars due to co-dominance, resulting in blood group AB.", "extras": [], "num": 48}, {"topic": "Sex-Linked Inheritance", "tag": "NEET 2022", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2022 Question Paper", "stem": "Why are red-green colour blindness and haemophilia described as showing criss-cross inheritance?", "options": [{"marker": "A", "text": "Traits pass from father to daughter and from daughter to her son"}, {"marker": "B", "text": "Traits pass directly from father to son only"}, {"marker": "C", "text": "Traits pass directly from mother to daughter only"}, {"marker": "D", "text": "Traits are transferred via non-homologous autosomes"}], "answerIndex": 0, "explanation": "In X-linked recessive inheritance, an affected male transmits the mutant X chromosome to his carrier daughters, who subsequently transmit it to their sons (the grandsons), displaying criss-cross inheritance.", "extras": [], "num": 49}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "NEET 2021", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2021 Question Paper", "stem": "Which of the following is true for an individual affected with Klinefelter's syndrome?", "options": [{"marker": "A", "text": "45 chromosomes with XO"}, {"marker": "B", "text": "Overall masculine development with gynaecomastia and sterility"}, {"marker": "C", "text": "Trisomy of chromosome 21 with mental retardation"}, {"marker": "D", "text": "Short-statured sterile female with rudimentary ovaries"}], "answerIndex": 1, "explanation": "Klinefelter's syndrome (47, XXY) males have tall stature, overall masculine physique with female secondary characteristics (gynaecomastia / breast development), and are sterile.", "extras": [], "num": 50}, {"topic": "Mendelian Disorders", "tag": "NEET 2020", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2020 Question Paper", "stem": "In alpha-thalassemia, mutation or deletion of how many total genes on chromosome 16 can lead to the disease?", "options": [{"marker": "A", "text": "One or both of two genes"}, {"marker": "B", "text": "One or more of four genes"}, {"marker": "C", "text": "Only one gene on chromosome 11"}, {"marker": "D", "text": "Three genes on chromosome 21"}], "answerIndex": 1, "explanation": "Alpha-thalassemia is controlled by two linked genes (HBA1 and HBA2) on chromosome 16 of each parent, making four genes in total. Deletion of one, two, three, or all four genes determines clinical severity.", "extras": [], "num": 51}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2019", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2019 Question Paper", "stem": "In Mendel's monohybrid cross, what is the proportion of plants in the F2 generation that are homozygous for the tall trait?", "options": [{"marker": "A", "text": "1/4"}, {"marker": "B", "text": "1/2"}, {"marker": "C", "text": "3/4"}, {"marker": "D", "text": "2/3"}], "answerIndex": 0, "explanation": "In F2 generation, the genotypic breakdown is 1/4 TT (homozygous tall), 1/2 Tt (heterozygous tall), and 1/4 tt (homozygous dwarf). Hence, 1/4th of all F2 plants are homozygous tall.", "extras": [], "num": 52}, {"topic": "Linkage & Recombination", "tag": "NEET 2018", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2018 Question Paper", "stem": "What was the recombination frequency observed between yellow body (y) and white eye (w) genes in Drosophila by T.H. Morgan?", "options": [{"marker": "A", "text": "1.3%"}, {"marker": "B", "text": "37.2%"}, {"marker": "C", "text": "50.0%"}, {"marker": "D", "text": "98.7%"}], "answerIndex": 0, "explanation": "Genes y and w are very tightly linked on the X chromosome of Drosophila and showed only 1.3% recombination, with 98.7% parental types.", "extras": [], "num": 53}, {"topic": "Sex Determination", "tag": "NEET 2017", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2017 Question Paper", "stem": "Which of the following statements about sex determination in humans is INCORRECT?", "options": [{"marker": "A", "text": "Sperms are heterogametic (50% X and 50% Y)"}, {"marker": "B", "text": "Ova are homogametic (all have X chromosome)"}, {"marker": "C", "text": "The sex of the child depends on whether the mother provides X or Y chromosome"}, {"marker": "D", "text": "There is a 50% probability of either male or female child in each pregnancy"}], "answerIndex": 2, "explanation": "The mother provides only X chromosomes. The father's sperm provides either X or Y; hence the genetic makeup of the sperm determines the sex of the child.", "extras": [], "num": 54}, {"topic": "Pleiotropy & Polygenic Traits", "tag": "NEET 2016", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2016 Question Paper", "stem": "In human skin colour polygenic inheritance, an individual with genotype AaBbCc will exhibit:", "options": [{"marker": "A", "text": "Darkest skin colour"}, {"marker": "B", "text": "Lightest skin colour"}, {"marker": "C", "text": "Intermediate skin colour"}, {"marker": "D", "text": "Albino phenotype"}], "answerIndex": 2, "explanation": "AaBbCc has exactly 3 dominant and 3 recessive alleles, resulting in an intermediate skin colour phenotype.", "extras": [], "num": 55}, {"topic": "Mendelian Disorders", "tag": "NEET 2015", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET (UG) 2015 Question Paper", "stem": "Which of the following is an example of an autosomal dominant disorder mentioned in NCERT Class 12?", "options": [{"marker": "A", "text": "Myotonic dystrophy"}, {"marker": "B", "text": "Sickle-cell anaemia"}, {"marker": "C", "text": "Cystic fibrosis"}, {"marker": "D", "text": "Phenylketonuria"}], "answerIndex": 0, "explanation": "Figure 4.14(a) in NCERT explicitly cites Myotonic dystrophy as the representative example of an autosomal dominant trait.", "extras": [], "num": 56}, {"topic": "Mendelian Genetics & Test Cross", "tag": "NEET 2014", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2014 Question Paper", "stem": "Mendel's work remained unrecognized from 1865 to 1900 because:", "options": [{"marker": "A", "text": "Communication was not easy in those days"}, {"marker": "B", "text": "His concept of discrete non-blending factors was not accepted by contemporaries"}, {"marker": "C", "text": "His use of mathematics and statistics to explain biology was unacceptable to many"}, {"marker": "D", "text": "All of the above"}], "answerIndex": 3, "explanation": "NCERT lists all these reasons: limited communication, rejection of discrete non-blending factors in favour of continuous variation, lack of physical proof for factors, and novel mathematical approaches.", "extras": [], "num": 57}, {"topic": "Co-dominance & Multiple Alleles", "tag": "AIPMT 2013", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "NEET-UG 2013 Question Paper", "stem": "Which idea is depicted by a cross where the F1 generation resembles both parents equally?", "options": [{"marker": "A", "text": "Incomplete dominance"}, {"marker": "B", "text": "Law of dominance"}, {"marker": "C", "text": "Co-dominance"}, {"marker": "D", "text": "Pleiotropy"}], "answerIndex": 2, "explanation": "In co-dominance, the F1 hybrid phenotypic expression simultaneously resembles both parents (as seen in the AB blood group).", "extras": [], "num": 58}, {"topic": "Chromosomal Theory of Inheritance", "tag": "AIPMT 2012", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2012 Mains", "stem": "In 1902, Sutton and Boveri noted that the behavior of chromosomes was parallel to the behavior of:", "options": [{"marker": "A", "text": "Mendel's factors (genes)"}, {"marker": "B", "text": "Centrosomes"}, {"marker": "C", "text": "Ribosomes"}, {"marker": "D", "text": "Mitochondria"}], "answerIndex": 0, "explanation": "Sutton and Boveri demonstrated that chromosomes occur in pairs, segregate during gamete formation, and assort independently, mirroring Mendel's factors.", "extras": [], "num": 59}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2011", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2011 Mains", "stem": "When two heterozygous pea plants with yellow seeds (Yy) are crossed, what proportion of the yellow-seeded progeny is homozygous?", "options": [{"marker": "A", "text": "1/4"}, {"marker": "B", "text": "1/3"}, {"marker": "C", "text": "1/2"}, {"marker": "D", "text": "2/3"}], "answerIndex": 1, "explanation": "Cross Yy x Yy gives 1 YY (yellow) : 2 Yy (yellow) : 1 yy (green). Among the yellow-seeded progeny (3 total), 1 is homozygous (YY), which is 1/3.", "extras": [], "num": 60}, {"topic": "Sex-Linked Inheritance", "tag": "AIPMT 2010", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2010 Mains", "stem": "A colourblind daughter is born to a couple only when:", "options": [{"marker": "A", "text": "Father is colourblind and mother is at least a carrier"}, {"marker": "B", "text": "Both parents have normal vision"}, {"marker": "C", "text": "Father has normal vision and mother is colourblind"}, {"marker": "D", "text": "Mother is normal and father is colourblind"}], "answerIndex": 0, "explanation": "A female requires two mutant X chromosomes (X^c X^c) to be colourblind. She must inherit one X^c from her father (who must be colourblind, X^c Y) and one X^c from her mother (who must be either a carrier or colourblind).", "extras": [], "num": 61}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2009", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2009", "stem": "Which of the following is the genotypic ratio of Mendel's dihybrid cross F2 generation?", "options": [{"marker": "A", "text": "9 : 3 : 3 : 1"}, {"marker": "B", "text": "1:2:1:2:4:2:1:2:1"}, {"marker": "C", "text": "1 : 1 : 1 : 1"}, {"marker": "D", "text": "3 : 1"}], "answerIndex": 1, "explanation": "The 16 combinations of the F2 dihybrid cross give a genotypic ratio of 1 RRYY : 2 RRYy : 1 RRyy : 2 RrYY : 4 RrYy : 2 Rryy : 1 rrYY : 2 rrYy : 1 rryy (1:2:1:2:4:2:1:2:1).", "extras": [], "num": 62}, {"topic": "Mendelian Disorders", "tag": "AIPMT 2008", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2008", "stem": "In phenylketonuria, why is phenylpyruvic acid excreted in urine?", "options": [{"marker": "A", "text": "Due to poor tubular reabsorption by the kidney"}, {"marker": "B", "text": "Due to active secretion in glomerulus"}, {"marker": "C", "text": "Because it is insoluble in blood"}, {"marker": "D", "text": "Due to absence of antidiuretic hormone"}], "answerIndex": 0, "explanation": "In PKU, high levels of phenylalanine and its derivatives accumulate in blood and are excreted in urine because of poor reabsorption by the kidney tubules.", "extras": [], "num": 63}, {"topic": "Chromosomal Disorders & Aneuploidy", "tag": "AIPMT 2007", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2007", "stem": "Down's syndrome was first clinically described in 1866 by:", "options": [{"marker": "A", "text": "Langdon Down"}, {"marker": "B", "text": "Henking"}, {"marker": "C", "text": "T.H. Morgan"}, {"marker": "D", "text": "Sutton"}], "answerIndex": 0, "explanation": "Langdon Down first described Down's syndrome in 1866 as a distinct clinical condition.", "extras": [], "num": 64}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2006", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2006", "stem": "A cross between pure breeding axial flower (AA) and terminal flower (aa) pea plants produces F1 with:", "options": [{"marker": "A", "text": "All terminal flowers"}, {"marker": "B", "text": "All axial flowers"}, {"marker": "C", "text": "1 axial : 1 terminal flower"}, {"marker": "D", "text": "Intermediate flower position"}], "answerIndex": 1, "explanation": "Axial flower position is dominant over terminal flower position; therefore, all heterozygous F1 plants have axial flowers.", "extras": [], "num": 65}, {"topic": "Mendelian Disorders", "tag": "AIPMT 2005", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2005", "stem": "In sickle cell anaemia, the point mutation causes which change at the mRNA codon level?", "options": [{"marker": "A", "text": "GAG changes to GUG"}, {"marker": "B", "text": "GUG changes to GAG"}, {"marker": "C", "text": "AUG changes to UAA"}, {"marker": "D", "text": "UAA changes to UAG"}], "answerIndex": 0, "explanation": "The point mutation in the beta-globin gene changes the DNA triplet CTC to CAC on the template strand, which transcribes into mutant mRNA codon GUG instead of normal GAG.", "extras": [], "num": 66}, {"topic": "Sex Determination", "tag": "AIPMT 2004", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2004", "stem": "Female heterogamety is observed in:", "options": [{"marker": "A", "text": "Humans"}, {"marker": "B", "text": "Drosophila"}, {"marker": "C", "text": "Birds"}, {"marker": "D", "text": "Grasshoppers"}], "answerIndex": 2, "explanation": "Female heterogamety (ZW female, ZZ male) is observed in birds and butterflies.", "extras": [], "num": 67}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2003", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2003", "stem": "A diploid organism is heterozygous for 3 gene loci. How many different genotypes of gametes can be produced?", "options": [{"marker": "A", "text": "3"}, {"marker": "B", "text": "6"}, {"marker": "C", "text": "8"}, {"marker": "D", "text": "16"}], "answerIndex": 2, "explanation": "Number of gamete genotypes = 2^n = 2^3 = 8.", "extras": [], "num": 68}, {"topic": "Pedigree Analysis & Symbols", "tag": "AIPMT 2002", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2002", "stem": "In pedigree analysis, a diamond symbol indicates:", "options": [{"marker": "A", "text": "Sex unspecified"}, {"marker": "B", "text": "Affected male"}, {"marker": "C", "text": "Carrier female"}, {"marker": "D", "text": "Stillborn child"}], "answerIndex": 0, "explanation": "In standard pedigree symbols (NCERT Figure 4.13), a diamond symbol represents an individual whose sex is unspecified.", "extras": [], "num": 69}, {"topic": "Co-dominance & Multiple Alleles", "tag": "AIPMT 2001", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2001", "stem": "How many alleles of gene I govern ABO blood grouping in an individual human diploid cell?", "options": [{"marker": "A", "text": "Only one"}, {"marker": "B", "text": "Any two"}, {"marker": "C", "text": "All three"}, {"marker": "D", "text": "Four"}], "answerIndex": 1, "explanation": "Although there are 3 alleles in the human population (multiple allelism), any single diploid individual possesses only two alleles.", "extras": [], "num": 70}, {"topic": "Mendelian Genetics & Test Cross", "tag": "AIPMT 2000", "sourceUrl": "https://neet.nta.nic.in/", "sourceLabel": "AIPMT 2000", "stem": "Mendel selected true-breeding pea plant varieties that differed in how many contrasting characters?", "options": [{"marker": "A", "text": "14 varieties for 7 characters"}, {"marker": "B", "text": "7 varieties for 14 characters"}, {"marker": "C", "text": "4 varieties for 2 characters"}, {"marker": "D", "text": "2 varieties for 7 characters"}], "answerIndex": 0, "explanation": "Mendel selected 14 true-breeding pea plant varieties, as pairs which were similar except for one character with contrasting traits (7 characters total).", "extras": [], "num": 71}];
+
+    const state = {
+      view: 'home',          // 'home' | 'kcet' | 'neet' | 'notes'
+      mode: 'doc',           // 'doc' | 'quiz'
+      showAnswers: true,     // Document mode answer visibility
+      activeTopic: 'All',
+      searchQuery: '',
+      kcetSelections: {},
+      neetSelections: {}
+    };
+
+    // DOM References
+    const homeView = document.getElementById('homeView');
+    const bankView = document.getElementById('bankView');
+    const notesView = document.getElementById('notesView');
+
+    const navHomeBtn = document.getElementById('navHomeBtn');
+    const navKcetBtn = document.getElementById('navKcetBtn');
+    const navNeetBtn = document.getElementById('navNeetBtn');
+    const navNotesBtn = document.getElementById('navNotesBtn');
+
+    const modeDocBtn = document.getElementById('modeDocBtn');
+    const modeQuizBtn = document.getElementById('modeQuizBtn');
+    const toggleAnswersBtn = document.getElementById('toggleAnswersBtn');
+    const resetQuizBtn = document.getElementById('resetQuizBtn');
+    const printBtn = document.getElementById('printBtn');
+    const searchInput = document.getElementById('searchInput');
+
+    // Navigation Switcher
+    function switchView(targetView) {
+      state.view = targetView;
+      homeView.classList.add('hidden');
+      bankView.classList.add('hidden');
+      notesView.classList.add('hidden');
+
+      [navHomeBtn, navKcetBtn, navNeetBtn, navNotesBtn].forEach(btn => {
+        btn.classList.remove('bg-white', 'text-purple-700', 'shadow-xs');
+        btn.classList.add('text-slate-600');
+      });
+
+      if (targetView === 'home') {
+        homeView.classList.remove('hidden');
+        navHomeBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+        updateHomeStats();
+      } else if (targetView === 'kcet' || targetView === 'neet') {
+        bankView.classList.remove('hidden');
+        if (targetView === 'kcet') navKcetBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+        if (targetView === 'neet') navNeetBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+        setupBankView();
+      } else if (targetView === 'notes') {
+        notesView.classList.remove('hidden');
+        navNotesBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setupBankView() {
+      const isKcet = (state.view === 'kcet');
+      const bankTitle = document.getElementById('bankTitle');
+      const bankSubtitle = document.getElementById('bankSubtitle');
+
+      if (isKcet) {
+        bankTitle.textContent = "KCET Genetics Question Bank (" + KCET_DATA.length + " Questions)";
+        bankSubtitle.textContent = "Karnataka CET Biology Previous Year Questions (2014–2026)";
+      } else {
+        bankTitle.textContent = "NEET PYQ Genetics Question Bank (" + NEET_DATA.length + " Questions)";
+        bankSubtitle.textContent = "AIPMT & NEET National Entrance Previous Year Questions (2000–2026)";
+      }
+
+      state.activeTopic = 'All';
+      state.searchQuery = '';
+      searchInput.value = '';
+
+      renderTopicPills();
+      renderQuestions();
+      renderAnswerKeyMatrix();
+      updateQuizBannerScore();
+    }
+
+    function renderTopicPills() {
+      const data = (state.view === 'kcet') ? KCET_DATA : NEET_DATA;
+      const topics = ['All', ...new Set(data.map(q => q.topic))];
+      const container = document.getElementById('topicPillsContainer');
+
+      container.innerHTML = topics.map(top => {
+        const active = (state.activeTopic === top);
+        const activeClass = active ? 'bg-purple-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200';
+        return '<button type="button" class="top-pill px-2.5 py-1 rounded-full font-semibold transition ' + activeClass + '" data-topic="' + top + '">' + top + '</button>';
+      }).join('');
+
+      container.querySelectorAll('.top-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.activeTopic = btn.dataset.topic;
+          renderTopicPills();
+          renderQuestions();
+        });
+      });
+    }
+
+    function getFilteredQuestions() {
+      const data = (state.view === 'kcet') ? KCET_DATA : NEET_DATA;
+      return data.filter(q => {
+        const matchTopic = (state.activeTopic === 'All' || q.topic === state.activeTopic);
+        const matchSearch = (!state.searchQuery || 
+          q.stem.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+          q.explanation.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+          q.tag.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+          q.topic.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+        return matchTopic && matchSearch;
+      });
+    }
+
+    function renderQuestions() {
+      const questions = getFilteredQuestions();
+      const container = document.getElementById('questionsContainer');
+      const badge = document.getElementById('filteredCountBadge');
+      const total = (state.view === 'kcet') ? KCET_DATA.length : NEET_DATA.length;
+
+      badge.textContent = "Showing " + questions.length + " of " + total + " questions";
+
+      if (questions.length === 0) {
+        container.innerHTML = '<div class="p-8 text-center bg-white rounded-xl border border-slate-200 text-slate-500 text-sm">No matching questions found. Try clearing your search query or topic filter.</div>';
+        return;
+      }
+
+      const isQuiz = (state.mode === 'quiz');
+      const showKey = state.showAnswers;
+      const userAnswers = (state.view === 'kcet') ? state.kcetSelections : state.neetSelections;
+
+      container.innerHTML = questions.map(q => {
+        const userChoice = userAnswers[q.num];
+        const hasAnswered = (userChoice !== undefined);
+        const isCorrect = (userChoice === q.answerIndex);
+
+        // Extras (e.g. Table)
+        let extrasHtml = '';
+        if (q.extras && q.extras.length > 0) {
+          q.extras.forEach(ext => {
+            if (ext.type === 'table') {
+              extrasHtml += '<div class="my-3 overflow-x-auto"><table class="min-w-full text-xs border border-slate-200 rounded-lg">';
+              extrasHtml += '<thead class="bg-slate-100 font-bold text-slate-700"><tr>';
+              ext.headers.forEach(h => { extrasHtml += '<th class="border border-slate-200 px-3 py-1.5">' + h + '</th>'; });
+              extrasHtml += '</tr></thead><tbody>';
+              ext.rows.forEach(r => {
+                extrasHtml += '<tr class="border-b border-slate-100">';
+                r.forEach(c => { extrasHtml += '<td class="border border-slate-200 px-3 py-1.5">' + c + '</td>'; });
+                extrasHtml += '</tr>';
+              });
+              extrasHtml += '</tbody></table></div>';
+            }
+          });
+        }
+
+        // Options
+        const optionsHtml = q.options.map((opt, optIdx) => {
+          const isSelected = (userChoice === optIdx);
+          const isOptCorrect = (optIdx === q.answerIndex);
+
+          if (isQuiz) {
+            let btnClass = 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50';
+            let badgeClass = 'bg-slate-100 text-slate-700';
+
+            if (hasAnswered) {
+              if (isSelected && isOptCorrect) {
+                btnClass = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                badgeClass = 'bg-emerald-600 text-white';
+              } else if (isSelected && !isOptCorrect) {
+                btnClass = 'border-rose-500 bg-rose-50 text-rose-900 font-bold';
+                badgeClass = 'bg-rose-600 text-white';
+              } else if (!isSelected && isOptCorrect) {
+                btnClass = 'border-emerald-400 bg-emerald-50/60 text-emerald-900';
+                badgeClass = 'bg-emerald-600 text-white';
+              } else {
+                btnClass = 'border-slate-100 bg-slate-50/50 text-slate-400 opacity-70';
+                badgeClass = 'bg-slate-200 text-slate-500';
+              }
+            }
+
+            return '<button type="button" class="opt-btn w-full text-left p-3 rounded-xl border text-xs sm:text-sm flex items-start gap-3 transition ' + btnClass + '" data-qnum="' + q.num + '" data-optidx="' + optIdx + '">' +
+                   '<span class="w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ' + badgeClass + '">' + opt.marker + '</span>' +
+                   '<span class="leading-relaxed pt-0.5">' + opt.text + '</span></button>';
+          } else {
+            let borderClass = 'border-slate-200 bg-white text-slate-800';
+            let badgeClass = 'bg-slate-100 text-slate-600';
+            if (showKey && isOptCorrect) {
+              borderClass = 'border-emerald-500 bg-emerald-50/50 font-bold text-emerald-950';
+              badgeClass = 'bg-emerald-600 text-white';
+            }
+            return '<div class="p-3 rounded-xl border text-xs sm:text-sm flex items-start gap-3 ' + borderClass + '">' +
+                   '<span class="w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ' + badgeClass + '">' + opt.marker + '</span>' +
+                   '<span class="leading-relaxed pt-0.5">' + opt.text + '</span></div>';
+          }
+        }).join('');
+
+        // Explanation Block
+        let explHtml = '';
+        if (isQuiz && hasAnswered) {
+          const statusBadge = isCorrect ? '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Correct!</span>' :
+                                         '<span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-bold">Incorrect</span>';
+          explHtml = '<div class="mt-4 p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">' +
+                     '<div class="flex items-center gap-2 mb-1.5">' + statusBadge +
+                     '<span class="font-bold text-slate-900">Correct Answer: Option ' + q.options[q.answerIndex].marker + ' (' + q.options[q.answerIndex].text + ')</span></div>' +
+                     '<p class="text-slate-600">' + q.explanation + '</p></div>';
+        } else if (!isQuiz && showKey) {
+          explHtml = '<div class="mt-3 pt-3 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">' +
+                     '<p><strong class="text-emerald-700 font-bold">Answer: Option ' + q.options[q.answerIndex].marker + '</strong> &bull; ' + q.explanation + '</p></div>';
+        }
+
+        return '<div class="q-card bg-white rounded-xl border border-slate-200 p-5 shadow-xs transition hover:border-slate-300">' +
+               '<div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">' +
+               '<div class="flex items-center gap-2">' +
+               '<span class="px-2.5 py-0.5 rounded-md bg-purple-600 text-white text-xs font-extrabold">Q' + q.num + '</span>' +
+               '<span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">' + q.tag + '</span>' +
+               '<span class="text-[11px] font-medium text-slate-400">&bull; ' + q.topic + '</span>' +
+               '</div><a href="' + q.sourceUrl + '" target="_blank" class="text-[11px] font-semibold text-purple-600 hover:underline">' + q.sourceLabel + '</a></div>' +
+               '<div class="text-sm sm:text-base font-semibold text-slate-900 mb-3 whitespace-pre-line leading-snug">' + q.stem + '</div>' +
+               extrasHtml +
+               '<div class="grid grid-cols-1 gap-2">' + optionsHtml + '</div>' +
+               explHtml +
+               '</div>';
+      }).join('');
+
+      if (isQuiz) {
+        container.querySelectorAll('.opt-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const qNum = Number(btn.dataset.qnum);
+            const optIdx = Number(btn.dataset.optidx);
+            handleQuizAnswer(qNum, optIdx);
+          });
+        });
+      }
+    }
+
+    function handleQuizAnswer(qNum, optIdx) {
+      const userAnswers = (state.view === 'kcet') ? state.kcetSelections : state.neetSelections;
+      userAnswers[qNum] = optIdx;
+      renderQuestions();
+      renderAnswerKeyMatrix();
+      updateQuizBannerScore();
+      updateHomeStats();
+    }
+
+    function renderAnswerKeyMatrix() {
+      const data = (state.view === 'kcet') ? KCET_DATA : NEET_DATA;
+      const userAnswers = (state.view === 'kcet') ? state.kcetSelections : state.neetSelections;
+      const matrix = document.getElementById('answerKeyMatrix');
+
+      matrix.innerHTML = data.map(q => {
+        const ansMarker = q.options[q.answerIndex].marker;
+        const userChoice = userAnswers[q.num];
+        let statusClass = 'bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200';
+
+        if (state.mode === 'quiz' && userChoice !== undefined) {
+          if (userChoice === q.answerIndex) {
+            statusClass = 'bg-emerald-600 text-white border-emerald-600';
+          } else {
+            statusClass = 'bg-rose-600 text-white border-rose-600';
+          }
+        }
+
+        return '<div class="p-1.5 rounded-lg border text-center transition cursor-default ' + statusClass + '">' +
+               '<div class="text-[10px] opacity-75 leading-none">Q' + q.num + '</div>' +
+               '<div class="text-xs font-black mt-0.5">' + ansMarker + '</div></div>';
+      }).join('');
+    }
+
+    function updateHomeStats() {
+      const kcetAnswered = Object.keys(state.kcetSelections).length;
+      let kcetCorrect = 0;
+      Object.keys(state.kcetSelections).forEach(qNum => {
+        const q = KCET_DATA.find(item => item.num === Number(qNum));
+        if (q && state.kcetSelections[qNum] === q.answerIndex) kcetCorrect++;
+      });
+      const kcetPct = kcetAnswered ? Math.round((kcetCorrect / kcetAnswered) * 100) : 0;
+      document.getElementById('statKcetProgress').textContent = kcetAnswered + ' / ' + KCET_DATA.length;
+      document.getElementById('statKcetScore').textContent = 'Score: ' + kcetCorrect + ' correct (' + kcetPct + '%)';
+
+      const neetAnswered = Object.keys(state.neetSelections).length;
+      let neetCorrect = 0;
+      Object.keys(state.neetSelections).forEach(qNum => {
+        const q = NEET_DATA.find(item => item.num === Number(qNum));
+        if (q && state.neetSelections[qNum] === q.answerIndex) neetCorrect++;
+      });
+      const neetPct = neetAnswered ? Math.round((neetCorrect / neetAnswered) * 100) : 0;
+      document.getElementById('statNeetProgress').textContent = neetAnswered + ' / ' + NEET_DATA.length;
+      document.getElementById('statNeetScore').textContent = 'Score: ' + neetCorrect + ' correct (' + neetPct + '%)';
+    }
+
+    function updateQuizBannerScore() {
+      const isKcet = (state.view === 'kcet');
+      const data = isKcet ? KCET_DATA : NEET_DATA;
+      const userAnswers = isKcet ? state.kcetSelections : state.neetSelections;
+
+      const attempted = Object.keys(userAnswers).length;
+      let correct = 0;
+      Object.keys(userAnswers).forEach(qNum => {
+        const q = data.find(item => item.num === Number(qNum));
+        if (q && userAnswers[qNum] === q.answerIndex) correct++;
+      });
+      const wrong = attempted - correct;
+      const accuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
+
+      document.getElementById('quizAttemptedCount').textContent = attempted;
+      document.getElementById('quizCorrectCount').textContent = correct;
+      document.getElementById('quizWrongCount').textContent = wrong;
+      document.getElementById('quizAccuracy').textContent = accuracy + '%';
+    }
+
+    // Event Listeners
+    navHomeBtn.addEventListener('click', () => switchView('home'));
+    navKcetBtn.addEventListener('click', () => switchView('kcet'));
+    navNeetBtn.addEventListener('click', () => switchView('neet'));
+    navNotesBtn.addEventListener('click', () => switchView('notes'));
+    document.getElementById('brandHomeBtn').addEventListener('click', () => switchView('home'));
+
+    document.getElementById('heroStartKcetBtn').addEventListener('click', () => {
+      state.mode = 'quiz';
+      switchView('kcet');
+      applyModeUI();
+    });
+    document.getElementById('heroStartNeetBtn').addEventListener('click', () => {
+      state.mode = 'quiz';
+      switchView('neet');
+      applyModeUI();
+    });
+    document.getElementById('heroOpenNotesBtn').addEventListener('click', () => switchView('notes'));
+
+    document.getElementById('cardKcetDocBtn').addEventListener('click', () => {
+      state.mode = 'doc';
+      switchView('kcet');
+      applyModeUI();
+    });
+    document.getElementById('cardKcetQuizBtn').addEventListener('click', () => {
+      state.mode = 'quiz';
+      switchView('kcet');
+      applyModeUI();
+    });
+    document.getElementById('cardNeetDocBtn').addEventListener('click', () => {
+      state.mode = 'doc';
+      switchView('neet');
+      applyModeUI();
+    });
+    document.getElementById('cardNeetQuizBtn').addEventListener('click', () => {
+      state.mode = 'quiz';
+      switchView('neet');
+      applyModeUI();
+    });
+
+    function applyModeUI() {
+      const isQuiz = (state.mode === 'quiz');
+      const scoreBanner = document.getElementById('quizScoreBanner');
+
+      if (isQuiz) {
+        modeQuizBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+        modeDocBtn.classList.remove('bg-white', 'text-purple-700', 'shadow-xs');
+        scoreBanner.classList.remove('hidden');
+        toggleAnswersBtn.classList.add('hidden');
+      } else {
+        modeDocBtn.classList.add('bg-white', 'text-purple-700', 'shadow-xs');
+        modeQuizBtn.classList.remove('bg-white', 'text-purple-700', 'shadow-xs');
+        scoreBanner.classList.add('hidden');
+        toggleAnswersBtn.classList.remove('hidden');
+      }
+      renderQuestions();
+      renderAnswerKeyMatrix();
+    }
+
+    modeDocBtn.addEventListener('click', () => {
+      state.mode = 'doc';
+      applyModeUI();
+    });
+
+    modeQuizBtn.addEventListener('click', () => {
+      state.mode = 'quiz';
+      applyModeUI();
+    });
+
+    toggleAnswersBtn.addEventListener('click', () => {
+      state.showAnswers = !state.showAnswers;
+      toggleAnswersBtn.textContent = state.showAnswers ? 'Hide Answer Badges' : 'Show Answer Badges';
+      renderQuestions();
+    });
+
+    resetQuizBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to reset your practice answers for this section?')) {
+        if (state.view === 'kcet') {
+          state.kcetSelections = {};
+        } else {
+          state.neetSelections = {};
+        }
+        renderQuestions();
+        renderAnswerKeyMatrix();
+        updateQuizBannerScore();
+        updateHomeStats();
+      }
+    });
+
+    printBtn.addEventListener('click', () => window.print());
+
+    searchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value.trim();
+      renderQuestions();
+    });
+
+    // Initialize Home View
+    switchView('home');
+  </script>
+</body>
+</html>
